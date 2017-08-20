@@ -54,3 +54,6 @@ process.on('SIGTERM', function () {
         process.exit(0);
     });
 });
+
+// adding resume schema file
+require('./resumes');
