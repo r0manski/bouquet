@@ -8,7 +8,6 @@ var sendJsonResponse = function (res, status, content) {
     res.json(content);
 };
 
-
 //creating a new resume in DB using the form data
 
 module.exports.resumesCreate = function (req, res) {
