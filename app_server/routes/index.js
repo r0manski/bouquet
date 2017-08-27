@@ -11,10 +11,13 @@ var ctrlRegister = require('../controllers/register');
 /* GET create resume page. */
 router.get('/create-resume', ctrlCreateResume.createResume);
 
+/* POST create resume page. */
+router.post('/create-resume', ctrlCreateResume.doCreateResume);
+
 /* GET create resume page. */
 router.get('/view-resume', ctrlViewResume.viewResume);
 
-/* GET create resume page. */
+/* GET create resumes list. */
 router.get('/search-result', ctrlSearchResult.searchResult);
 
 /* GET home page. */
@@ -25,5 +28,6 @@ router.get('/sign-in', ctrlSignIn.signIn);
 
 /* GET registration page. */
 router.get('/register', ctrlRegister.register);
+
 
 module.exports=router;

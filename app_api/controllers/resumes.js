@@ -29,7 +29,7 @@ module.exports.resumesCreate = function (req, res) {
         if (err) {
             sendJsonResponse(res, 400, err);
         } else {
-            sendJsonResponse(res, 200, resume);
+            sendJsonResponse(res, 201, resume);
         }
     });
 };
