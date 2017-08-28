@@ -19,7 +19,7 @@ Coding Principles:
 1.	Validate all input data
 2.	Handle error friendly
 3.	Keep code readable
-4.	Use 4 spaces instead of tab
+4.	Code should have minimal dependencies
 5.	Proper indentation
 6.	Nest tags properly
 7.	Eliminate unnecessary resources/tags
