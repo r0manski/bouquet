@@ -14,19 +14,21 @@ Then
 npm start
 Done!
 
-Coding Principle
+Coding Principles:
 
-Validate all input data
-Handle error friendly
-Keep code simple
-Use 4 spaces instead of tab
-Proper indentation
-Nest tags properly
-Eliminate unnecessary resources/tags
-Better name conventions (e.g. variable/object: changeColor, class/method: InputManager)
-Logical ordering
-Well documentation
-Well annotation
-Modular design
-Minimize coupling
-Code reusable
+1.	Validate all input data
+2.	Handle error friendly
+3.	Keep code readable
+4.	Use 4 spaces instead of tab
+5.	Proper indentation
+6.	Nest tags properly
+7.	Eliminate unnecessary resources/tags
+8.	Follow name conventions (e.g. variable/object: changeColor, class/method: InputManager)
+9.	Logical ordering
+10.	Provide good documentation
+11.	Provide good annotation
+12.	Modular design
+13.	Minimize coupling
+14.	Do not repeat yourself(DRY)
+15. Write unit and acceptance tests
+
