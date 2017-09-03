@@ -14,7 +14,18 @@ var resumeSchema = new mongoose.Schema({
     addr1: {type: String, "default": "not provided"},
     addr2: {type: String, "default": "not provided"},
     email: {type: String, "default": "not provided"},
-    phoneNumber: {type: Number, "default": 0}
+    phoneNumber: {type: Number, "default": 0},
+    desiredPosition: {type: String, "default": "not provided"},
+    desiredSalary: {type: Number, "default": 0},
+    startWork: {type: Number, "default": 0},
+    endWork: {type: Number, "default": 0},
+    workPlace: {type: String, "default": "not provided"},
+    workPosition: {type: String, "default": "not provided"},
+    workAchievement: {type: String, "default": "not provided"},
+    eduInstitution: {type: String, "default": "not provided"},
+    eduDepartment: {type: String, "default": "not provided"},
+    eduSpecialization: {type: String, "default": "not provided"},
+    eduGraduation: {type: Number, "default": 0}
 });
 
 //compiling model from a schema

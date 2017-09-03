@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom01">First name</label>
-                    <input type="text" name="firstName" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" value="Mark" required>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom02">Last name</label>
-                    <input type="text" name="lastName" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" value="Otto" required>
                 </div>
 
             </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom12">Date of Birth</label>
-                    <input type="text" name="birth" class="form-control" id="validationCustom12" placeholder="DD/MM/YYYY" required>
+                    <input type="text" name="birth" class="form-control" id="birth" placeholder="DD/MM/YYYY" required>
                     <div class="invalid-feedback">
                         Please provide a valid date of birth.
                     </div>
@@ -46,28 +46,28 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom03">Nationality</label>
-                    <input type="text" name="country" class="form-control" id="validationCustom03" placeholder="Australia" required>
+                    <input type="text" name="country" class="form-control" id="country" placeholder="Australia" required>
                     <div class="invalid-feedback">
                         Please provide a valid nationality.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom04">State</label>
-                    <input type="text" name="state" class="form-control" id="validationCustom04" placeholder="New Sales Wales" required>
+                    <input type="text" name="state" class="form-control" id="state" placeholder="New Sales Wales" required>
                     <div class="invalid-feedback">
                         Please provide a valid state.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom05">City</label>
-                    <input type="text" name="city" class="form-control" id="validationCustom05" placeholder="Sydney" required>
+                    <input type="text" name="city" class="form-control" id="city" placeholder="Sydney" required>
                     <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom06">Suburb</label>
-                    <input type="text" name="suburb" class="form-control" id="validationCustom06" placeholder="Haymarket" required>
+                    <input type="text" name="suburb" class="form-control" id="suburb" placeholder="Haymarket" required>
                     <div class="invalid-feedback">
                         Please provide a valid suburb.
                     </div>
@@ -76,24 +76,24 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom07">Address 1</label>
-                    <input type="text" name="addr1" class="form-control" id="validationCustom07" placeholder="" required>
+                    <input type="text" name="addr1" class="form-control" id="addr1" placeholder="" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom08">Address 2</label>
-                    <input type="text" name="addr2" class="form-control" id="validationCustom08" placeholder="" required>
+                    <input type="text" name="addr2" class="form-control" id="addr2" placeholder="" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom09">Email Address</label>
-                    <input type="text" name="email" class="form-control" id="validationCustom09" placeholder="" required>
+                    <input type="text" name="email" class="form-control" id="email" placeholder="" required>
                     <div class="invalid-feedback">
                         Please provide a valid email address.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationCustom10">Phone Number</label>
-                    <input type="text" name="phoneNumber" class="form-control" id="validationCustom10" placeholder="" required>
+                    <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="" required>
                     <div class="invalid-feedback">
                         Please provide a valid phone number.
                     </div>
@@ -103,17 +103,19 @@
                 </div>
             </div>
 
+            <br>
+
             <div class="row">
                 <div class="col-md-12 mb-3">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <input class="form-check-input" type="radio" name="haveWorkExperience" id="haveWorkExperience" value="option1" checked>
                             I have work experience
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <input class="form-check-input" type="radio" name="haveWorkExperience" id="haventWorkExperience" value="option2">
                             I have no work experience
                         </label>
                     </div>
@@ -121,6 +123,91 @@
                 </div>
             </div>
 
+            <br>
+            <hr>
+            <h4>Desired job</h4>
+            <br>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Desired Position</label>
+                    <input type="text" name="desiredPosition" class="form-control" id="desiredPosition" placeholder="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <label>Desired Salary</label>
+                    <input type="text" name="desiredSalary" class="form-control" id="desiredSalary" placeholder="">
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <h4>Work places</h4>
+            <br>
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <label>Start of work</label>
+                    <input type="text" name="startWork" class="form-control" id="startWork" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <label>End of work</label>
+                    <input type="text" name="endWork" class="form-control" id="endWork" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Organization</label>
+                    <input type="text" name="workPlace" class="form-control" id="workPlace" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Position</label>
+                    <input type="text" name="workPosition" class="form-control" id="workPosition" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Responsibilities, tasks, achievements</label>
+                    <textarea type="text" name="workAchievement" class="form-control" id="workAchievement" placeholder=""></textarea>
+                </div>
+            </div>
+
+
+            <br>
+            <hr>
+            <h4>Education</h4>
+            <br>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Name of educational institution</label>
+                    <input type="text" name="eduInstitution" class="form-control" id="eduInstitution" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Department</label>
+                    <input type="text" name="eduDepartment" class="form-control" id="eduDepartment" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Specialization</label>
+                    <input type="text" name="eduSpecialization" class="form-control" id="eduSpecialization" placeholder="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <label>Year of graduation</label>
+                    <input type="text" name="eduGraduation" class="form-control" id="eduGraduation" placeholder="">
+                </div>
+            </div>
+
+
+            <hr>
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
 
