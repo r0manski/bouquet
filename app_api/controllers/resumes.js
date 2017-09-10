@@ -22,9 +22,21 @@ module.exports.resumesCreate = function (req, res) {
         city: req.body.city,
         suburb: req.body.suburb,
         addr1: req.body.addr1,
-        addr2: req.body.addr1,
+        addr2: req.body.addr2,
         email: req.body.email,
-        phoneNumber: req.body.phoneNumber
+        phoneNumber: req.body.phoneNumber,
+        desiredPosition: req.body.desiredPosition,
+        desiredSalary: req.body.desiredSalary,
+        startWork: req.body.startWork,
+        endWork: req.body.endWork,
+        workPlace: req.body.workPlace,
+        workPosition: req.body.workPosition,
+        workAchievement: req.body.workAchievement,
+        eduInstitution: req.body.eduInstitution,
+        eduDepartment: req.body.eduDepartment,
+        eduSpecialization: req.body.eduSpecialization,
+        eduGraduation: req.body.eduGraduation
+
     }, function (err, resume) {
         if (err) {
             sendJsonResponse(res, 400, err);
