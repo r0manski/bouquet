@@ -1,3 +1,4 @@
+require('dotenv').load(); // read and use .env files
 var express = require('express');
 var path = require('path');
 //var favicon = require('serve-favicon');
