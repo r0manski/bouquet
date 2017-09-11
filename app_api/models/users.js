@@ -54,4 +54,7 @@ userSchema.methods.generateJwt = function() {
     }, process.env.JWT_SECRET);
 };
 
+//compiling model of User from a schema
+mongoose.model('User', userSchema);
+
 

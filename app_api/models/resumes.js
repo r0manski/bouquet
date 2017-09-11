@@ -28,5 +28,5 @@ var resumeSchema = new mongoose.Schema({
     eduGraduation: {type: Number, "default": 0}
 });
 
-//compiling model from a schema
+//compiling model of Resume from a schema
 mongoose.model('Resume', resumeSchema);

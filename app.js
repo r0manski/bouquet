@@ -5,7 +5,10 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport'); //must be before model definition
+
 require('./app_api/models/db');
+require('./app_api/config/passport'); //must be after model definition, because it needs the user model to exist
 
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
@@ -24,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize()); //needs to be initialized after the static route defined and before routes that use authentication
 app.use('/', routes);
 app.use('/api', routesApi);
 
