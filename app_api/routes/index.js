@@ -10,6 +10,9 @@ router.post('/resumes', ctrlResumes.resumesCreate);
 router.get('/resumes/:resumeid', ctrlResumes.resumesReadOne);
 router.put('/resumes/:resumeid', ctrlResumes.resumesUpdateOne);
 router.delete('/resumes/:resumeid', ctrlResumes.resumesDeleteOne);
+
+// routes for Authentication
+
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 

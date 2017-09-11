@@ -5,10 +5,10 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var passport = require('passport'); //must be before model definition
+var passport = require('passport'); // must be before model definition
 
 require('./app_api/models/db');
-require('./app_api/config/passport'); //must be after model definition, because it needs the user model to exist
+require('./app_api/config/passport'); // must be after model definition, because it needs the user model to exist
 
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');

@@ -29,4 +29,5 @@ var resumeSchema = new mongoose.Schema({
 });
 
 //compiling model of Resume from a schema
+
 mongoose.model('Resume', resumeSchema);

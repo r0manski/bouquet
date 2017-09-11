@@ -6,7 +6,8 @@ var sendJSONresponse = function(res, status, content) {
     res.json(content);
 };
 
-//registering user
+//registering user controller
+
 module.exports.register = function(req, res) {
     //respond with an error if not all the required fields are provided
     if(!req.body.name || !req.body.email || !req.body.password) {
@@ -36,7 +37,8 @@ module.exports.register = function(req, res) {
     });
 };
 
-//authentificating user
+//authenticating user controller
+
 module.exports.login = function(req, res) {
     //respond with an error if not all the required fields are provided
     if(!req.body.email || !req.body.password) {
