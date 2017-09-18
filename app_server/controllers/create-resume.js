@@ -11,13 +11,13 @@ var renderCreateResumeForm = function (req, res) {
     });
 };
 
-/* GET 'Create resume' page */
+/* GET Create resume page */
 module.exports.createResume = function(req, res){
 
     renderCreateResumeForm(req, res);
 };
 
-/* POST 'Add review' page */
+/* POST Add resume page */
 
 module.exports.doCreateResume = function (req, res) {
     var requestOptions, path;

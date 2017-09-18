@@ -9,7 +9,7 @@ module.exports.register = function(req, res) {
     res.render('register', { title: 'Registration' });
 };
 
-/* POST 'Add review' page */
+/* POST registration page */
 
 module.exports.doRegister = function (req, res) {
     var requestOptions, path;

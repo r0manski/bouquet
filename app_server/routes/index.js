@@ -24,7 +24,10 @@ router.get('/search-result', ctrlSearchResult.searchResult);
 router.get('/', ctrlMain.index);
 
 /* GET sign-in page. */
-router.get('/sign-in', ctrlSignIn.signIn);
+router.get('/sign-in', ctrlSignIn.login);
+
+/* Post sign-in page. */
+router.post('/sign-in', ctrlSignIn.doLogin);
 
 /* GET registration page. */
 router.get('/register', ctrlRegister.register);

@@ -10,7 +10,7 @@ var sendJsonResponse = function (res, status, content) {
 
 //creating a new resume in DB using the form data
 
-module.exports.resumesCreate = function (req, res) {
+module.exports.resumesDoCreate = function (req, res) {
 
     Res.create({
         firstName: req.body.firstName,
