@@ -29,5 +29,8 @@ router.get('/sign-in', ctrlSignIn.signIn);
 /* GET registration page. */
 router.get('/register', ctrlRegister.register);
 
+/* POST registration page. */
+router.post('/register', ctrlRegister.doRegister);
+
 
 module.exports=router;
