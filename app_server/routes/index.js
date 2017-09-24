@@ -8,6 +8,7 @@ var ctrlSignIn = require('../controllers/sign-in');
 var ctrlRegister = require('../controllers/register');
 var ctrlSignInSuccess = require('../controllers/sign-in-success');
 var ctrlRegisterSuccess = require('../controllers/register-success');
+var ctrlCreateResumeSuccess = require('../controllers/create-resume-success');
 
 /* GET create resume page. */
 router.get('/create-resume', ctrlCreateResume.createResume);
@@ -20,6 +21,9 @@ router.get('/view-resume', ctrlViewResume.viewResume);
 
 /* GET create resumes list. */
 router.get('/search-result', ctrlSearchResult.searchResult);
+
+/* GET create-resume-success page */
+router.get('/create-resume-success', ctrlCreateResumeSuccess.createResumeSuccess);
 
 /* GET home page. */
 router.get('/', ctrlMain.index);

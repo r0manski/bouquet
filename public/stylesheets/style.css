@@ -132,3 +132,7 @@ body {
 .m-viewresume-container p{
 	font-weight: bold;
 }
+
+.card{
+    margin-bottom: 30px;
+}
