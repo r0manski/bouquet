@@ -33,7 +33,7 @@ module.exports.doRegister = function (req, res) {
 
             //redirect to create resume page if user was registered succesfully or show an error page if API returned an error
             if (response.statusCode === 200) {
-                res.redirect('/create-resume');
+                res.redirect('/register-success');
             } else {
                 console.log(body);
             }
