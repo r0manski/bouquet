@@ -12,38 +12,22 @@
         <h2 class="form-resume-heading">Search Result</h2>
         <hr>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Ming Zhao</h4>
-                        <p class="card-text">Software Engineer / University of Technology Sydney</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="btn btn-primary">View</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Another Person</h4>
-                        <p class="card-text">Software Engineer / University of Technology Sydney</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="btn btn-primary">View</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="col-sm-6">-->
+                <!--<div class="card">-->
+                    <!--<div class="card-body">-->
+                        <!--<h4 class="card-title">Another Person</h4>-->
+                        <!--<p class="card-text">Software Engineer / University of Technology Sydney</p>-->
+                        <!--<ul class="list-group list-group-flush">-->
+                            <!--<li class="list-group-item">Cras justo odio</li>-->
+                            <!--<li class="list-group-item">Dapibus ac facilisis in</li>-->
+                            <!--<li class="list-group-item">Vestibulum at eros</li>-->
+                        <!--</ul>-->
+                        <!--<div class="card-body">-->
+                            <!--<a href="#" class="btn btn-primary">View</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -51,5 +35,41 @@
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://localhost:3000/api/resumes"
+        }).then(function(data) {
+//            alert(data.length);
+
+            for (var i = 0; i < data.length; i++){
+
+                var fullName = data[i].firstName + " " + data[i].lastName;
+                var info = data[i].gender + " / " + data[i].country + " " + data[i].state + " " + data[i].city;
+
+                $('.row').append("            <div class=\"col-sm-6\">\n" +
+                    "                <div class=\"card\">\n" +
+                    "                    <div class=\"card-body\">\n" +
+                    "                        <span style='float: right'><i>"+ data[i]._id +"</i></span>\n" +
+                    "                        <h4 class=\"card-title\">"+ fullName +"</h4>\n" +
+                    "                        <p class=\"card-text\">"+ info +"</p>\n" +
+                    "                        <ul class=\"list-group list-group-flush\">\n" +
+                    "                            <li class=\"list-group-item\"><i>Email address:</i> "+ data[i].email +"</li>\n" +
+                    "                            <li class=\"list-group-item\"><i>Phone number:</i> "+ data[i].phoneNumber +"</li>\n" +
+                    "                            <li class=\"list-group-item\"><i>Birthday:</i> "+ data[i].birth +"</li>\n" +
+                    "                        </ul>\n" +
+                    "                        <div class=\"card-body\">\n" +
+                    "                            <a href=\"#\" class=\"btn btn-primary\">View</a>\n" +
+                    "                        </div>\n" +
+                    "                    </div>\n" +
+                    "                </div>\n" +
+                    "            </div>");
+            }
+
+        });
+    });
+</script>
+
 </body>
 </html>
