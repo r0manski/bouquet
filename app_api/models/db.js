@@ -2,6 +2,11 @@ var mongoose = require('mongoose');
 
 //defining and connecting to Mongo DB
 var dbURI = 'mongodb://localhost/bouquet';
+
+if (process.env.NODE_ENV === 'production') {
+    dbURI = 'mongodb://badmin:secret@ds149724.mlab.com:49724/bouquet';
+}
+
 mongoose.connect(dbURI);
 
 //monitor connection
