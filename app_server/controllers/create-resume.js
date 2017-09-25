@@ -2,6 +2,10 @@ var request = require('request');
 var apiOptions = {
     server : "http://localhost:3000"
 };
+//use different server for Heroku
+if (process.env.NODE_ENV === 'production') {
+    apiOptions.server = "https://aipbouquet.herokuapp.com/";
+}
 
 /* function to render the create-resume page */
 
