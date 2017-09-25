@@ -28,29 +28,6 @@
 
 <!--testing API endpoint -->
 
-<script type="text/javascript">
-    $('#button1').click(function(e){
-        e.preventDefault();
-        var data = {};
-        data.email = "test1@reg.ru";
-        data.password = "123";
-
-        $.ajax({
-            type: 'POST',
-            data: {email: "test1@reg.ru", password: "123"},
-            dataType: json,
-            url: 'http://localhost:3000/api/login',
-            success: function(result) {
-                alert('ok');
-            },
-            error: function(result) {
-                alert('error');
-            }
-        });
-    });
-
-</script>
-
 <button id="button1">Test API login</button>
 
 
@@ -58,3 +35,25 @@
 
 <%- include partial/shared-js.ejs %>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#button1').click(function(e) {
+//            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                data: {
+                    email: $('#inputEmail').val(),
+                    password: $('#inputPassword').val()
+                },
+                url: 'http://localhost:3000/api/login',
+                success: function (result) {
+                    alert("success");
+                },
+                error: function (result) {
+                    alert("error");
+                }
+            });
+        });
+    });
+
+</script>
