@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <%- include partial/head.ejs %>
 
 <body>
 
 <%- include partial/nav.ejs %>
+
 
 <div class="jumbotron m-sign-in">
     <div class="container m-sign-in-middle">
@@ -28,8 +26,35 @@
     </div>
 </div>
 
+<!--testing API endpoint -->
+
+<script type="text/javascript">
+    $('#button1').click(function(e){
+        e.preventDefault();
+        var data = {};
+        data.email = "test1@reg.ru";
+        data.password = "123";
+
+        $.ajax({
+            type: 'POST',
+            data: {email: "test1@reg.ru", password: "123"},
+            dataType: json,
+            url: 'http://localhost:3000/api/login',
+            success: function(result) {
+                alert('ok');
+            },
+            error: function(result) {
+                alert('error');
+            }
+        });
+    });
+
+</script>
+
+<button id="button1">Test API login</button>
+
+
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
-</body>
-</html>
+

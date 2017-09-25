@@ -1,0 +1,10 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $.ajaxPrefilter(function( options ) {
+        if (options.beforeSend) {
+    options.beforeSend = function (xhr) {
+    xhr.setRequestHeader('Authorization', 'Bearer '+localStorage.getItem('token'));
+        }
+        }
+    });
+</script>

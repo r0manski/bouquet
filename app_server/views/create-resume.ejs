@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <%- include partial/head.ejs %>
+
+//JQuery adds the Authorization headers to each ajax request, provided that token is stored in the local storage
+<%- include partial/auth_client.ejs %>
 
 <body>
 

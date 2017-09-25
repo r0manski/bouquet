@@ -14,7 +14,12 @@ var renderCreateResumeForm = function (req, res) {
 /* GET Create resume page */
 module.exports.createResume = function(req, res){
 
-    renderCreateResumeForm(req, res);
+    renderCreateResumeForm(req, res)
+
+        //{
+        //headers: {
+        //    Authorization: 'Bearer '+ authentication.getToken()
+        //}
 };
 
 /* POST Add resume page */
