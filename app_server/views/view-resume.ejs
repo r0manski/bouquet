@@ -81,32 +81,36 @@
 
 <script>
     $(document).ready(function() {
-        var resumeId = <>
-        $.ajax({
-            url: "http://localhost:3000/api/resumes/" + resumeId,
-            type: 'GET',
-            beforeSend : function(xhr) {
-                // set JWT header
-                xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-            },
-            success: function (data) {
-                $('#firstName').text(data.firstName);
-                $('#lastName').text(data.lastName);
-                $('#gender').text(data.gender);
-                $('#birth').text(data.birth);
-                $('#country').text(data.country);
-                $('#state').text(data.state);
-                $('#city').text(data.city);
-                $('#suburb').text(data.suburb);
-                $('#addr1').text(data.addr1);
-                $('#addr2').text(data.addr2);
-                $('#email').text(data.email);
-                $('#phoneNumber').text(data.phoneNumber);
-            },
-            error: function (data) {
-                alert("Error.")
-            }
-        });
+        if (<%- JSON.stringify(resumeid) %> != ""){
+            var resumeId = <%- JSON.stringify(resumeid) %>;
+            $.ajax({
+                url: "http://localhost:3000/api/resumes/" + resumeId,
+                type: 'GET',
+                beforeSend : function(xhr) {
+                    // set JWT header
+                    xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+                },
+                success: function (data) {
+                    $('#firstName').text(data.firstName);
+                    $('#lastName').text(data.lastName);
+                    $('#gender').text(data.gender);
+                    $('#birth').text(data.birth);
+                    $('#country').text(data.country);
+                    $('#state').text(data.state);
+                    $('#city').text(data.city);
+                    $('#suburb').text(data.suburb);
+                    $('#addr1').text(data.addr1);
+                    $('#addr2').text(data.addr2);
+                    $('#email').text(data.email);
+                    $('#phoneNumber').text(data.phoneNumber);
+                },
+                error: function (data) {
+                    alert("Error.")
+                }
+            });
+        } else {
+            alert("resumeid is missing.");
+        }
     });
 </script>
 
