@@ -1,5 +1,7 @@
 bouQuet
 
+db.users.update({},{$set : {“isAdmin”: false}}, false, true)
+
 bouQuet is the group assessment of Advanced Internet Programming in Spring 2017
 
 Getting Started
