@@ -38,12 +38,11 @@
 
 <script>
     $(document).ready(function() {
+
         $.ajax({
             url: "http://localhost:3000/api/resumes",
             type: 'GET'
         }).then(function(data) {
-//            alert(data.length);
-
             for (var i = 0; i < data.length; i++){
 
                 var fullName = data[i].firstName + " " + data[i].lastName;
@@ -62,7 +61,7 @@
                     "                        </ul>\n" +
                     "                        <div class=\"card-body\">\n" +
                     "                            <a href=\"view-resume/"+data[i]._id+"\" class=\"btn btn-primary\">View</a>\n" +
-                    "                            <a href=\"#\" class=\"btn btn-danger\">Remove</a>\n" +
+//                    "                            <a href=\"#\" class=\"btn btn-danger\">Remove</a>\n" +
                     "                        </div>\n" +
                     "                    </div>\n" +
                     "                </div>\n" +
@@ -71,7 +70,13 @@
 
         });
     });
+
 </script>
 
 </body>
 </html>
+
+
+
+
+

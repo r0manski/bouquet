@@ -150,6 +150,8 @@
                 <p id="eduGraduation"></p>
             </div>
         </div>
+        <hr>
+        <a href="#" id="removeBtn" class="btn btn-danger">Delete</a>
     </div>
 </div>
 
@@ -198,6 +200,30 @@
                     alert("Error.")
                 }
             });
+
+
+            $('#removeBtn').click(function(e) {
+                $.ajax({
+                    type: 'DELETE',
+                    beforeSend : function(xhr) {
+                        // set JWT header
+
+                        xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+
+                    },
+                    url: '/api/resumes/'+<%-JSON.stringify(resumeid)%>,
+                    success: function (data) {
+                        alert("Successfully deleted.")
+                        window.location.href = "/search-result";
+                    },
+                    error: function (data) {
+                        alert("Error.");
+                    }
+                });
+            });
+
+
+
         } else {
             alert("resumeid is missing.");
         }
