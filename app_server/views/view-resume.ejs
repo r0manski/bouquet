@@ -81,8 +81,8 @@
 
 <script>
     $(document).ready(function() {
-        if (<%- JSON.stringify(resumeid) %> != ""){
-            var resumeId = <%- JSON.stringify(resumeid) %>;
+        if (<%-JSON.stringify(resumeid)%> != ""){
+            var resumeId = <%-JSON.stringify(resumeid)%>;
             $.ajax({
                 url: "http://localhost:3000/api/resumes/" + resumeId,
                 type: 'GET',

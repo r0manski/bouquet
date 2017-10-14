@@ -1,6 +1,6 @@
 //Get view-resume page
 
 module.exports.viewResume = function (req, res) {
-    resumeid = req.param.resumeid;
+    resumeid = req.params.resumeid;
     res.render('view-resume', { resumeid: resumeid });
 };

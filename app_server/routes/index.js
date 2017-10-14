@@ -27,7 +27,7 @@ router.get('/profile/:username', ctrlUsers.profile);
 router.post('/create-resume', ctrlCreateResume.doCreateResume);
 
 /* GET create resume page. */
-router.get('/view-resume', ctrlViewResume.viewResume);
+router.get('/view-resume/:resumeid', ctrlViewResume.viewResume);
 
 /* GET create resumes list. */
 router.get('/search-result', ctrlSearchResult.searchResult);
