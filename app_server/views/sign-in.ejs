@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <%- include partial/head.ejs %>
 
 <body>
@@ -28,17 +31,28 @@
 
 <!--testing API endpoint -->
 
-<button id="button1">Test API login</button>
-
-
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#button1').click(function(e) {
-//            e.preventDefault();
+        //check current user login status
+        var token = localStorage.getItem('token');
+        $.ajax({
+            url: '/api/login',
+            type: 'POST',
+            data: token,
+//            success: function (data) {
+//                alert("You have already logged in.")
+//            },
+//            error: function (data) {
+//                alert("Tokens invalid.");
+//            }
+        });
+
+        $('form').submit(function(e) {
+            e.preventDefault();
             $.ajax({
                 type: 'POST',
                 data: {
@@ -46,14 +60,17 @@
                     password: $('#inputPassword').val()
                 },
                 url: '/api/login',
-                success: function (result) {
-                    alert("success");
+                success: function (data) {
+                    localStorage.setItem('token',data.token);
+                    window.location = "/sign-in-success";
                 },
-                error: function (result) {
-                    alert("error");
+                error: function (data) {
+                    alert("Username or password incorrect.");
                 }
             });
         });
     });
-
 </script>
+
+</body>
+</html>

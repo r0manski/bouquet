@@ -33,5 +33,44 @@
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        //check current user login status
+        var token = localStorage.getItem('token');
+        $.ajax({
+            url: '/api/login',
+            type: 'POST',
+            data: token,
+//            success: function (data) {
+//                alert("You have already registered.")
+//            },
+//            error: function (data) {
+//                alert("Tokens invalid.");
+//            }
+        });
+
+        $('form').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                data: {
+                    name: $('#inputUsername').val(),
+                    email: $('#inputEmail').val(),
+                    password: $('#inputPassword').val()
+                },
+                url: '/api/register',
+                success: function (data) {
+                    localStorage.setItem('token',data.token);
+                    window.location = "/register-success";
+                },
+                error: function (data) {
+                    alert("Username or email address is not available.");
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

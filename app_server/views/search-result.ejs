@@ -39,7 +39,8 @@
 <script>
     $(document).ready(function() {
         $.ajax({
-            url: "http://localhost:3000/api/resumes"
+            url: "http://localhost:3000/api/resumes",
+            type: 'GET'
         }).then(function(data) {
 //            alert(data.length);
 
@@ -61,6 +62,7 @@
                     "                        </ul>\n" +
                     "                        <div class=\"card-body\">\n" +
                     "                            <a href=\"#\" class=\"btn btn-primary\">View</a>\n" +
+                    "                            <a href=\"#\" class=\"btn btn-danger\">Remove</a>\n" +
                     "                        </div>\n" +
                     "                    </div>\n" +
                     "                </div>\n" +

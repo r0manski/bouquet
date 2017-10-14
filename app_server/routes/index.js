@@ -17,7 +17,7 @@ var ctrlCreateResumeSuccess = require('../controllers/create-resume-success');
 
 
 /* GET create resume page. */
-router.get('/create-resume', auth, ctrlCreateResume.createResume);
+router.get('/create-resume', ctrlCreateResume.createResume);
 
 /* POST create resume page. */
 router.post('/create-resume', ctrlCreateResume.doCreateResume);

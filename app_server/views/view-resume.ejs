@@ -9,7 +9,7 @@
 
 <div class="jumbotron m-viewresume-container">
     <div class="container">
-        <h2 class="form-resume-heading">View your resume</h2>
+        <h2 class="form-resume-heading">View the resume</h2>
         <hr>
         <div class="row">
             <div class="col-md-3 mb-3">
@@ -69,7 +69,6 @@
                 <p>0402049468</p>
             </div>
             <div class="col-md-6 mb-3">
-                <span>/*More information will be required in further version.*/</span>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Edit</button>
@@ -79,5 +78,28 @@
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
+
+<script>
+    $(document).ready(function() {
+        var resumeId = "59e16225b368b738b52470ed";
+        $.ajax({
+            url: "http://localhost:3000/api/resumes/" + resumeId,
+            type: 'GET',
+            beforeSend : function(xhr) {
+                // set JWT header
+                if ($window.sessionStorage.token) {
+                    xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+                }
+            },
+            success: function (data) {
+                localStorage.setItem('token',data.token);
+                window.location = "/sign-in-success";
+            },
+            error: function (data) {
+                alert("Username or password incorrect.");
+            }
+    });
+</script>
+
 </body>
 </html>
