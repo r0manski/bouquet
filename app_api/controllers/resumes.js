@@ -101,9 +101,33 @@ module.exports.resumesReadOne = function(req, res) {
 
 //controller's placeholders
 
-module.exports.resumesUpdateOne = function (req, res) {
-    sendJsonResponse(res, 200, {"status" : "success"});
-};
 module.exports.resumesDeleteOne = function (req, res) {
+    console.log('Removing a resume', req.params);
+    if (req.params && req.params.resumeid) {
+        Res
+            .findByIdAndRemove(req.params.resumeid)
+            .exec(function(err, resume) {
+                if (!resume) {
+                    sendJsonResponse(res, 404, {
+                        "message": "resumeid not found"
+                    });
+                    return;
+                } else if (err) {
+                    console.log(err);
+                    sendJsonResponse(res, 404, err);
+                    return;
+                }
+                console.log(resume);
+                sendJsonResponse(res, 200, resume);
+            });
+    } else {
+        console.log('No resumeid specified');
+        sendJsonResponse(res, 404, {
+            "message": "No resumeid in request"
+        });
+    }
+};
+
+module.exports.resumesUpdateOne = function (req, res) {
     sendJsonResponse(res, 200, {"status" : "success"});
 };
