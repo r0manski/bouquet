@@ -12,6 +12,8 @@
         <form class="form-register">
             <h2 class="form-register-heading">Thank you</h2>
             <span>Your resume has been saved. </span>
+            <hr>
+            <i>Redirecting in 5 seconds...</i>
         </form>
 
     </div>
@@ -20,5 +22,14 @@
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
+
+<script>
+    $(document).ready(function() {
+        window.setTimeout(function(){
+            window.location.href = "/";
+        }, 5000);
+    });
+</script>
+
 </body>
 </html>
