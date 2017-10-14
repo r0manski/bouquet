@@ -3,6 +3,10 @@ var crypto = require('crypto'); //including the library for data encryption
 var jwt = require('jsonwebtoken'); //library for JWT - JASON Web Token
 
 var userSchema = new mongoose.Schema({
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     email: {
         type: String,
         unique: true,
