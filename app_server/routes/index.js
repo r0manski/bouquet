@@ -20,6 +20,9 @@ var ctrlCreateResumeSuccess = require('../controllers/create-resume-success');
 /* GET create resume page. */
 router.get('/create-resume', ctrlCreateResume.createResume);
 
+/* GET profile page. */
+router.get('/profile/:username', ctrlUsers.profile);
+
 /* POST create resume page. */
 router.post('/create-resume', ctrlCreateResume.doCreateResume);
 
@@ -31,9 +34,6 @@ router.get('/search-result', ctrlSearchResult.searchResult);
 
 /* GET create-resume-success page */
 router.get('/create-resume-success', ctrlCreateResumeSuccess.createResumeSuccess);
-
-/* GET resume page */
-router.get('/resumes/:resumeid', ctrlUsers.profile);
 
 /* GET user page */
 router.get('/users/:username', ctrlUsers.profile);
