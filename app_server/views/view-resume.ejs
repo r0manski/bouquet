@@ -13,60 +13,60 @@
         <hr>
         <div class="row">
             <div class="col-md-3 mb-3">
-                <label for="validationCustom01">First name</label>
-                <p>Ming</p>
+                <label>First name</label>
+                <p id="firstName">Ming</p>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationCustom02">Last name</label>
-                <p>Zhao</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 mb-3">
-                <label for="validationCustom11">Gender</label>
-                <p>Male</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="validationCustom12">Date of Birth</label>
-                <p>21/12/1992</p>
+                <label>Last name</label>
+                <p id="lastName">Zhao</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mb-3">
-                <label for="validationCustom03">Nationality</label>
-                <p>China</p>
+                <label>Gender</label>
+                <p id="gender">Male</p>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationCustom04">State</label>
-                <p>Beijing</p>
+                <label>Date of Birth</label>
+                <p id="birth">21/12/1992</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label>Nationality</label>
+                <p id="country">China</p>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationCustom05">City</label>
-                <p>Beijing</p>
+                <label>State</label>
+                <p id="state">Beijing</p>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationCustom06">Suburb</label>
-                <p>Xicheng</p>
+                <label>City</label>
+                <p id="city">Beijing</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Suburb</label>
+                <p id="suburb">Xicheng</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="validationCustom07">Address 1</label>
-                <p>123-456</p>
+                <label>Address 1</label>
+                <p id="addr1">123-456</p>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="validationCustom08">Address 2</label>
-                <p>234-567</p>
+                <label>Address 2</label>
+                <p id="addr2">234-567</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mb-3">
-                <label for="validationCustom09">Email Address</label>
-                <p>porea@live.com</p>
+                <label>Email Address</label>
+                <p id="email">porea@live.com</p>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationCustom10">Phone Number</label>
-                <p>0402049468</p>
+                <label>Phone Number</label>
+                <p id="phoneNumber">0402049468</p>
             </div>
             <div class="col-md-6 mb-3">
             </div>
@@ -81,23 +81,32 @@
 
 <script>
     $(document).ready(function() {
-        var resumeId = "59e16225b368b738b52470ed";
+        var resumeId = <>
         $.ajax({
             url: "http://localhost:3000/api/resumes/" + resumeId,
             type: 'GET',
             beforeSend : function(xhr) {
                 // set JWT header
-                if ($window.sessionStorage.token) {
-                    xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-                }
+                xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
             },
             success: function (data) {
-                localStorage.setItem('token',data.token);
-                window.location = "/sign-in-success";
+                $('#firstName').text(data.firstName);
+                $('#lastName').text(data.lastName);
+                $('#gender').text(data.gender);
+                $('#birth').text(data.birth);
+                $('#country').text(data.country);
+                $('#state').text(data.state);
+                $('#city').text(data.city);
+                $('#suburb').text(data.suburb);
+                $('#addr1').text(data.addr1);
+                $('#addr2').text(data.addr2);
+                $('#email').text(data.email);
+                $('#phoneNumber').text(data.phoneNumber);
             },
             error: function (data) {
-                alert("Username or password incorrect.");
+                alert("Error.")
             }
+        });
     });
 </script>
 
