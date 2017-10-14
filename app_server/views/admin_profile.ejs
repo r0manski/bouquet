@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include partial/head.ejs %>
+
+<body>
+
+<%- include partial/nav.ejs %>
+
+<div class="jumbotron m-sign-in">
+    <div class="container m-sign-in-middle">
+        <form class="form-signin">
+            <h1><%= user.name() %></h1>
+            <span>You have successfully signed in as an admin. </span>
+        </form>
+
+    </div>
+</div>
+
+<%- include partial/footer.ejs %>
+
+<%- include partial/shared-js.ejs %>
+</body>
+</html>

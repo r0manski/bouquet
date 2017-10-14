@@ -71,14 +71,32 @@ module.exports.resumesList = function (req, res) {
     sendJsonResponse(res, 200, {"status" : "success"});
 };
 
-module.exports.resumesReadOne = function (req, res) {
-    return Res
-        .findById(req.params.resumeid)
-        .exec(function (err, resume) {
-            sendJsonResponse(res, 200, resume)
+/* GET a resume by the id */
+module.exports.resumesReadOne = function(req, res) {
+    console.log('Finding resume details', req.params);
+    if (req.params && req.params.resumeid) {
+        Res
+            .findById(req.params.resumeid)
+            .exec(function(err, resume) {
+                if (!resume) {
+                    sendJsonResponse(res, 404, {
+                        "message": "resumeid not found"
+                    });
+                    return;
+                } else if (err) {
+                    console.log(err);
+                    sendJsonResponse(res, 404, err);
+                    return;
+                }
+                console.log(resume);
+                sendJsonResponse(res, 200, resume);
+            });
+    } else {
+        console.log('No resumeid specified');
+        sendJsonResponse(res, 404, {
+            "message": "No resumeid in request"
         });
-
-    sendJsonResponse(res, 200, {"status" : "success"});
+    }
 };
 
 //controller's placeholders
