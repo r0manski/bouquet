@@ -14,64 +14,142 @@
         <div class="row">
             <div class="col-md-3 mb-3">
                 <label>First name</label>
-                <p id="firstName">Ming</p>
+                <p id="firstName"></p>
             </div>
             <div class="col-md-3 mb-3">
                 <label>Last name</label>
-                <p id="lastName">Zhao</p>
+                <p id="lastName"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mb-3">
                 <label>Gender</label>
-                <p id="gender">Male</p>
+                <p id="gender"></p>
             </div>
             <div class="col-md-3 mb-3">
                 <label>Date of Birth</label>
-                <p id="birth">21/12/1992</p>
+                <p id="birth"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mb-3">
                 <label>Nationality</label>
-                <p id="country">China</p>
+                <p id="country"></p>
             </div>
             <div class="col-md-3 mb-3">
                 <label>State</label>
-                <p id="state">Beijing</p>
+                <p id="state"></p>
             </div>
             <div class="col-md-3 mb-3">
                 <label>City</label>
-                <p id="city">Beijing</p>
+                <p id="city"></p>
             </div>
             <div class="col-md-3 mb-3">
                 <label>Suburb</label>
-                <p id="suburb">Xicheng</p>
+                <p id="suburb"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label>Address 1</label>
-                <p id="addr1">123-456</p>
+                <p id="addr1"></p>
             </div>
             <div class="col-md-6 mb-3">
                 <label>Address 2</label>
-                <p id="addr2">234-567</p>
+                <p id="addr2"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mb-3">
                 <label>Email Address</label>
-                <p id="email">porea@live.com</p>
+                <p id="email"></p>
             </div>
             <div class="col-md-3 mb-3">
                 <label>Phone Number</label>
-                <p id="phoneNumber">0402049468</p>
+                <p id="phoneNumber"></p>
             </div>
             <div class="col-md-6 mb-3">
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">Edit</button>
+        <hr>
+        <h4>Desired job</h4>
+        <br>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Desired Position</label>
+                <p id="desiredPosition"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 mb-3">
+                <label>Desired Salary</label>
+                <p id="desiredSalary"></p>
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <h4>Work places</h4>
+        <br>
+        <div class="row">
+            <div class="col-md-2 mb-3">
+                <label>Start of work</label>
+                <p id="startWork"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 mb-3">
+                <label>End of work</label>
+                <p id="endWork"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Organization</label>
+                <p id="workPlace"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Position</label>
+                <p id="workPosition"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Responsibilities, tasks, achievements</label>
+                <p id="workAchievement"></p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <h4>Education</h4>
+        <br>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Name of educational institution</label>
+                <p id="eduInstitution"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Department</label>
+                <p id="eduDepartment"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Specialization</label>
+                <p id="eduSpecialization"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 mb-3">
+                <label>Year of graduation</label>
+                <p id="eduGraduation"></p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -103,6 +181,18 @@
                     $('#addr2').text(data.addr2);
                     $('#email').text(data.email);
                     $('#phoneNumber').text(data.phoneNumber);
+
+                    $('#desiredPosition').text(data.email);
+                    $('#desiredSalary').text(data.phoneNumber);
+                    $('#startWork').text(data.email);
+                    $('#endWork').text(data.phoneNumber);
+                    $('#workPlace').text(data.email);
+                    $('#workPosition').text(data.phoneNumber);
+                    $('#workAchievement').text(data.email);
+                    $('#eduInstitution').text(data.phoneNumber);
+                    $('#eduDepartment').text(data.email);
+                    $('#eduSpecialization').text(data.phoneNumber);
+                    $('#eduGraduation').text(data.email);
                 },
                 error: function (data) {
                     alert("Error.")
