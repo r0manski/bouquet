@@ -12,6 +12,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 //Get user account page
+//Temporarily making query from here, needs to be moved to API.
 
 module.exports.profile = function (req, res, next) {
     User.findOne({ email: req.params.username }, function (err, user) {
