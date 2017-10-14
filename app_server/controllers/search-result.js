@@ -30,3 +30,10 @@ module.exports.searchResult = function (req, res) {
             renderSearchResult(req,res, body);
         })
 };
+
+module.exports.search = function (req, res) {
+    keyword = req.params.keyword;
+
+    res.render('search-result', { keyword: keyword });
+    // res.redirect('search-result');
+};

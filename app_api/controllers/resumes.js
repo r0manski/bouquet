@@ -131,3 +131,31 @@ module.exports.resumesDeleteOne = function (req, res) {
 module.exports.resumesUpdateOne = function (req, res) {
     sendJsonResponse(res, 200, {"status" : "success"});
 };
+
+module.exports.resumesSearch = function (req, res) {
+    return Res
+        .find({
+            $or:[
+                {"firstName": {$regex: req.body.keyword, $options:'i'}},
+                {"lastName": {$regex: req.body.keyword, $options:'i'}}
+            ]
+        })
+        .exec(function (err, resume) {
+            sendJsonResponse(res, 200, resume)
+        });
+    // var locations = [];
+    //
+    // results.forEach(function(doc) {
+    //     locations.push({
+    //         distance: theEarth.getDistanceFromRads(doc.dis),
+    //         name: doc.obj.name,
+    //         address: doc.obj.address,
+    //         rating: doc.obj.rating,
+    //         facilities: doc.obj.facilities,
+    //         _id: doc.obj._id
+    //     });
+    // });
+    // return locations;
+
+    sendJsonResponse(res, 200, {"status" : "success"});
+};

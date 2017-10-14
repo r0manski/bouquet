@@ -59,4 +59,6 @@ router.post('/register', ctrlRegister.doRegister);
 /* GET register-success page */
 router.get('/register-success', ctrlRegisterSuccess.registerSuccess);
 
+router.get('/search-result/:keyword', ctrlSearchResult.search);
+
 module.exports=router;

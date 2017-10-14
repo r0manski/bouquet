@@ -28,6 +28,7 @@
                     <!--</div>-->
                 <!--</div>-->
             <!--</div>-->
+            <h2 id="empty" style="margin: 150px auto; display: none;"><i>Nothing but chicken!</i></h2>
         </div>
     </div>
 </div>
@@ -40,9 +41,17 @@
     $(document).ready(function() {
 
         $.ajax({
-            url: "http://localhost:3000/api/resumes",
-            type: 'GET'
+            url: "http://localhost:3000/api/resumes/search",
+            data: {
+                keyword: <%-JSON.stringify(keyword)%>
+            },
+            type: 'POST'
         }).then(function(data) {
+
+            if (data.length == 0){
+                $('#empty').css("display", "inherit");
+            }
+
             for (var i = 0; i < data.length; i++){
 
                 var fullName = data[i].firstName + " " + data[i].lastName;
@@ -60,7 +69,7 @@
                     "                            <li class=\"list-group-item\"><i>Birthday:</i> "+ data[i].birth +"</li>\n" +
                     "                        </ul>\n" +
                     "                        <div class=\"card-body\">\n" +
-                    "                            <a href=\"view-resume/"+data[i]._id+"\" class=\"btn btn-primary\">View</a>\n" +
+                    "                            <a href=\"/view-resume/"+data[i]._id+"\" class=\"btn btn-primary\">View</a>\n" +
 //                    "                            <a href=\"#\" class=\"btn btn-danger\">Remove</a>\n" +
                     "                        </div>\n" +
                     "                    </div>\n" +
