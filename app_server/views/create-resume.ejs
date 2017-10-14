@@ -238,30 +238,29 @@
 <script>
     $(document).ready(function() {
         //check current user login status
-        var token = localStorage.getItem('token');
-        $.ajax({
-            type: 'POST',
-            data: token,
-            url: '/api/login',
-//            success: function (data) {
-//                localStorage.setItem('token',data.token);
-//                window.location = "/sign-in-success";
-//            },
-//            error: function (data) {
-//                alert("Tokens invalid.");
-//            }
-        });
+            var token = localStorage.getItem('token');
+            $.ajax({
+                type: 'POST',
+                data: token,
+                url: '/api/login',
+    //            success: function (data) {
+    //                localStorage.setItem('token',data.token);
+    //                window.location = "/sign-in-success";
+    //            },
+    //            error: function (data) {
+    //                alert("Tokens invalid.");
+    //            }
+            });
 
         $('form').submit(function(e) {
             e.preventDefault();
             $.ajax({
-                url: '/api/resumes',
                 type: 'POST',
                 beforeSend : function(xhr) {
                     // set JWT header
-                    if ($window.sessionStorage.token) {
-                        xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-                    }
+
+                    xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+
                 },
                 data: {
                     firstName: $('#firstName').val(),
@@ -273,6 +272,7 @@
 
 //                data: $("#resume").serialize(),
 
+                url: '/api/resumes',
                 success: function (data) {
                     window.location = "/create-resume-success";
                 },
