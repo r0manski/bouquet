@@ -42,7 +42,7 @@
 
         $('form').submit(function(e) {
             e.preventDefault();
-            if ($('#inputEmail').val() !== "" && $('#inputPassword').val() !== ""){
+            if (validator.isEmail($('#inputEmail').val()) && validator.isAlphanumeric($('#inputPassword').val())){
                 $.ajax({
                     type: 'POST',
                     data: {

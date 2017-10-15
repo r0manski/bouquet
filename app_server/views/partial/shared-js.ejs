@@ -6,8 +6,14 @@
         var token = localStorage.getItem('token');
         if(token !== null){
             $('#signOutBtn').css("display", "inherit");
+            $('#signInBtn').css("display", "none");
+            $('#registerBtn').css("display", "none");
+            $('#createBtn').css("display", "inherit");
         }else{
             $('#signOutBtn').css("display", "none");
+            $('#signInBtn').css("display", "inherit");
+            $('#registerBtn').css("display", "inherit");
+            $('#createBtn').css("display", "none");
         }
 
 

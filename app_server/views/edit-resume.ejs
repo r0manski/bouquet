@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <%- include partial/head.ejs %>
 
 <body>
@@ -228,32 +227,8 @@
                         // set JWT header
                         xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
                     },
-                    data: {
-                        firstName: $('#firstName').val(),
-                        lastName: $('#lastName').val(),
-                        gender: $('#gender').val(),
-                        birth: $('#birth').val(),
-                        country: $('#country').val(),
-                        state: $('#state').val(),
-                        city: $('#city').val(),
-                        suburb: $('#suburb').val(),
-                        addr1: $('#addr1').val(),
-                        addr2: $('#addr2').val(),
-                        email: $('#email').val(),
-                        phoneNumber: $('#phoneNumber').val(),
-                        desiredPosition: $('#desiredPosition').val(),
-                        desiredSalary: $('#desiredSalary').val(),
-                        startWork: $('#startWork').val(),
-                        endWork: $('#endWork').val(),
-                        workPlace: $('#workPlace').val(),
-                        workPosition: $('#workPosition').val(),
-                        workAchievement: $('#workAchievement').val(),
-                        eduInstitution: $('#eduInstitution').val(),
-                        eduDepartment: $('#eduDepartment').val(),
-                        eduSpecialization: $('#eduSpecialization').val(),
-                        eduGraduation: $('#eduGraduation').val()
-                    },
-
+                    data: $('form').serialize(),
+                    dataType: 'json',
                     url: '/api/resumes/' + resumeId,
                     success: function (data) {
                         window.location = "/success/3";

@@ -67,16 +67,16 @@
             redirectBack();
         }
         if (errorId === "10"){
-            $('#errorMessage').text("Email address and password cannot be empty.");
+            $('#errorMessage').text("One or more fields are missing or invalid. Only letters and numbers allowed.");
             redirectURL("/sign-in");
         }
         if (errorId === "11"){
-            $('#errorMessage').text("All fields are required. Please try again.");
+            $('#errorMessage').text("One or more fields are missing or invalid. Only letters and numbers are allowed.");
             redirectURL("/register");
         }
         if (errorId === "12"){
             $('#errorMessage').text("Search keywords can only be letters.");
-            redirectURL("/register");
+            redirectBack();
         }
 
         function redirectBack(){

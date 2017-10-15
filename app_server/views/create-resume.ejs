@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <%- include partial/head.ejs %>
 
 <body>
@@ -182,44 +181,117 @@
             }
         }, 1000);
 
+        //initialize form variables
+
+        var firstName;
+        var lastName;
+        var gender;
+        var birth;
+        var country;
+        var state;
+        var city;
+        var suburb;
+        var addr1;
+        var addr2;
+        var email;
+        var phoneNumber;
+        var desiredPosition;
+        var desiredSalary;
+        var startWork;
+        var endWork;
+        var workPlace;
+        var workPosition;
+        var workAchievement;
+        var eduInstitution;
+        var eduDepartment;
+        var eduSpecialization;
+        var eduGraduation;
+
+        function formValidation(){
+
+            // assign form variables with values
+
+            firstName = $('#firstName').val();
+            lastName = $('#lastName').val();
+            gender = $('#gender').val();
+            birth = $('#birth').val();
+            country = $('#country').val();
+            state = $('#state').val();
+            city = $('#city').val();
+            suburb = $('#suburb').val();
+            addr1 = $('#addr1').val();
+            addr2 = $('#addr2').val();
+            email = $('#email').val();
+            phoneNumber = $('#phoneNumber').val();
+            desiredPosition = $('#desiredPosition').val();
+            desiredSalary = $('#desiredSalary').val();
+            startWork = $('#startWork').val();
+            endWork = $('#endWork').val();
+            workPlace = $('#workPlace').val();
+            workPosition = $('#workPosition').val();
+            workAchievement = $('#workAchievement').val();
+            eduInstitution = $('#eduInstitution').val();
+            eduDepartment = $('#eduDepartment').val();
+            eduSpecialization = $('#eduSpecialization').val();
+            eduGraduation = $('#eduGraduation').val();
+
+            // check if all compulsory fields are valid?
+
+            if (validator.isAlpha(firstName) && validator.isAlpha(lastName) && validator.isAlpha(gender) && validator.isISO8601(birth) && validator.isAlpha(country)){
+
+                // START VALIDATION CHECK FOR NON-COMPOLSORY FIELDS
+                // if a numeric field is not empty, then check it if it is numeric?
+
+                if (!validator.isEmpty(phoneNumber) && !validator.isNumeric(phoneNumber)){
+                    return false;
+                }
+                if (!validator.isEmpty(desiredSalary) && !validator.isNumeric(desiredSalary)){
+                    return false;
+                }
+                if (!validator.isEmpty(desiredSalary) && !validator.isNumeric(desiredSalary)){
+                    return false;
+                }
+                if (!validator.isEmpty(startWork) && !validator.isNumeric(startWork)){
+                    return false;
+                }
+                if (!validator.isEmpty(endWork) && !validator.isNumeric(endWork)){
+                    return false;
+                }
+                if (!validator.isEmpty(eduGraduation) && !validator.isNumeric(eduGraduation)){
+                    return false;
+                }
+
+                // if email field is not empty, then check it if it is a valid email address?
+
+                if (!validator.isEmpty(email) && !validator.isEmail(email)){
+                    return false;
+                }
+
+                // return true if all checks passed
+
+                return true;
+
+            }else{
+
+                // return false if one or more compulsory fields are empty of vaild
+
+                return false;
+            }
+        }
+
         $('form').submit(function(e) {
             e.preventDefault();
             //validate the compulsory fields are not empty and valid
-            if (validator.isAlpha($('#firstName').val()) && validator.isAlpha($('#lastName').val()) && validator.isAlpha($('#gender').val()) && validator.isBefore($('#birth').val()) && validator.isAlpha($('#country').val())){
+            if (formValidation()){
+
                 $.ajax({
                     type: 'POST',
                     beforeSend : function(xhr) {
                         // set JWT header
-
                         xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-
                     },
-                    data: {
-                        firstName: $('#firstName').val(),
-                        lastName: $('#lastName').val(),
-                        gender: $('#gender').val(),
-                        birth: $('#birth').val(),
-                        country: $('#country').val(),
-                        state: $('#state').val(),
-                        city: $('#city').val(),
-                        suburb: $('#suburb').val(),
-                        addr1: $('#addr1').val(),
-                        addr2: $('#addr2').val(),
-                        email: $('#email').val(),
-                        phoneNumber: $('#phoneNumber').val(),
-                        desiredPosition: $('#desiredPosition').val(),
-                        desiredSalary: $('#desiredSalary').val(),
-                        startWork: $('#startWork').val(),
-                        endWork: $('#endWork').val(),
-                        workPlace: $('#workPlace').val(),
-                        workPosition: $('#workPosition').val(),
-                        workAchievement: $('#workAchievement').val(),
-                        eduInstitution: $('#eduInstitution').val(),
-                        eduDepartment: $('#eduDepartment').val(),
-                        eduSpecialization: $('#eduSpecialization').val(),
-                        eduGraduation: $('#eduGraduation').val()
-                    },
-
+                    data: $('form').serialize(),
+                    dataType: 'json',
                     url: '/api/resumes',
                     success: function (data) {
                         window.location = "/success/2";
@@ -229,7 +301,7 @@
                     }
                 });
             }else{
-                    alert("error");
+                window.location = "/error/6";
             }
         });
     });
