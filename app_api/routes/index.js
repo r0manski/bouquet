@@ -30,6 +30,5 @@ router.post('/login', ctrlAuth.login);
 
 router.post('/twitter/:resumeid', ctrlTwitter.doTwit);
 
-//to update
 module.exports=router;
 
