@@ -9,9 +9,9 @@ var auth = jwt({
 });
 var ctrlResumes = require('../controllers/resumes');
 var ctrlAuth = require('../controllers/authentication');
+var ctrlTwitter = require('../controllers/twitter');
 
 // routes for Resumes
-
 router.get('/resumes', ctrlResumes.resumesList);
 router.post('/resumes', auth, ctrlResumes.resumesDoCreate);
 router.get('/resumes/:resumeid', ctrlResumes.resumesReadOne);
@@ -25,5 +25,9 @@ router.put('/resumes/:resumeid', auth, ctrlResumes.resumesUpdateOne);
 
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+
+// routes for twitter
+
+router.post('/twitter/:resumeid', ctrlTwitter.doTwit);
 
 module.exports=router;
