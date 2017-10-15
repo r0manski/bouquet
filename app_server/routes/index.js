@@ -15,18 +15,19 @@ var ctrlRegister = require('../controllers/register');
 var ctrlSignInSuccess = require('../controllers/sign-in-success');
 var ctrlRegisterSuccess = require('../controllers/register-success');
 var ctrlCreateResumeSuccess = require('../controllers/create-resume-success');
+var ctrlEditResume = require('../controllers/edit-resume');
 
 
-/* GET create resume page. */
+/* GET create resume page */
 router.get('/create-resume', ctrlCreateResume.createResume);
 
-/* POST create resume page. */
-router.post('/create-resume', ctrlCreateResume.doCreateResume);
+/* POST create resume page */
+router.post('/create-resume', auth, ctrlCreateResume.doCreateResume);
 
-/* GET view resume page. */
+/* GET view resume page */
 router.get('/view-resume/:resumeid', ctrlViewResume.viewResume);
 
-/* GET create resumes list. */
+/* GET create resumes list */
 router.get('/search-result', ctrlSearchResult.searchResult);
 
 /* GET create-resume-success page */
@@ -38,27 +39,34 @@ router.get('/users/:username', ctrlUsers.profile);
 /* GET admin page */
 router.get('/admin/:username', ctrlUsers.adminProfile);
 
-/* GET home page. */
+/* GET home page */
 router.get('/', ctrlMain.index);
 
-/* GET sign-in page. */
+/* GET sign-in page */
 router.get('/sign-in', ctrlSignIn.login);
 
-/* Post sign-in page. */
+/* Post sign-in page */
 router.post('/sign-in', ctrlSignIn.doLogin);
 
 /* GET sign-in-success page */
 router.get('/sign-in-success', ctrlSignInSuccess.loginSuccess);
 
-/* GET registration page. */
+/* GET registration page */
 router.get('/register', ctrlRegister.register);
 
-/* POST registration page. */
+/* POST registration page */
 router.post('/register', ctrlRegister.doRegister);
 
 /* GET register-success page */
 router.get('/register-success', ctrlRegisterSuccess.registerSuccess);
 
+/* GET search-result page (based on search keywords) */
 router.get('/search-result/:keyword', ctrlSearchResult.search);
+
+/* GET edit-resume page */
+router.get('/edit-resume', ctrlEditResume.editResume)
+
+/* UPDATE edit-resume page */
+router.post('/edit-resume', auth, ctrlEditResume.doEditResume)
 
 module.exports=router;
