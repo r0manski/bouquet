@@ -14,7 +14,7 @@ var ctrlSignIn = require('../controllers/sign-in');
 var ctrlRegister = require('../controllers/register');
 var ctrlSignInSuccess = require('../controllers/sign-in-success');
 var ctrlRegisterSuccess = require('../controllers/register-success');
-var ctrlCreateResumeSuccess = require('../controllers/create-resume-success');
+var ctrlModResumeSuccess = require('../controllers/mod-resume-success');
 var ctrlEditResume = require('../controllers/edit-resume');
 
 
@@ -30,8 +30,8 @@ router.get('/view-resume/:resumeid', ctrlViewResume.viewResume);
 /* GET create resumes list */
 router.get('/search-result', ctrlSearchResult.searchResult);
 
-/* GET create-resume-success page */
-router.get('/create-resume-success', ctrlCreateResumeSuccess.createResumeSuccess);
+/* GET mod-resume-success page */
+router.get('/mod-resume-success', ctrlModResumeSuccess.modResumeSuccess);
 
 /* GET user page */
 router.get('/users/:username', ctrlUsers.profile);
@@ -64,7 +64,7 @@ router.get('/register-success', ctrlRegisterSuccess.registerSuccess);
 router.get('/search-result/:keyword', ctrlSearchResult.search);
 
 /* GET edit-resume page */
-router.get('/edit-resume', ctrlEditResume.editResume)
+router.get('/edit-resume/:resumeid', ctrlEditResume.editResume)
 
 /* UPDATE edit-resume page */
 router.post('/edit-resume', auth, ctrlEditResume.doEditResume)

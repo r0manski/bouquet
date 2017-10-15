@@ -78,26 +78,6 @@
             </div>
 
             <br>
-
-            <div class="row">
-                <div class="col-md-12 mb-3">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="haveWorkExperience" id="haveWorkExperience" value="option1" checked>
-                            I have work experience
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="haveWorkExperience" id="haventWorkExperience" value="option2">
-                            I have no work experience
-                        </label>
-                    </div>
-
-                </div>
-            </div>
-
-            <br>
             <hr>
             <h4>Desired job</h4>
             <br>
@@ -265,7 +245,7 @@
 
                 url: '/api/resumes',
                 success: function (data) {
-                    window.location = "/create-resume-success";
+                    window.location = "/mod-resume-success";
                 },
                 error: function (data) {
                     alert("Create resume failed.");

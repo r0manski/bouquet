@@ -70,7 +70,7 @@ module.exports.doCreateResume = function (req, res) {
 
             //redirect to resumes listing if resume was added succesfully or show an error page if API returned an error
             if (response.statusCode === 201) {
-                res.redirect('/create-resume-success');
+                res.redirect('/mod-resume-success');
             } else {
                 console.log(body);
             }

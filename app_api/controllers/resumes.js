@@ -154,7 +154,7 @@ module.exports.resumesUpdateOne = function (req, res) {
             eduGraduation: req.body.eduGraduation
         };
 
-        return Res
+        Res
             .findByIdAndUpdate(req.params.resumeid, updateContent)
             .exec(function(err, resume) {
                 if (!resume) {

@@ -10,8 +10,11 @@ if (process.env.NODE_ENV === 'production') {
 /* function to render the create-resume page */
 
 var renderEditResumeForm = function (req, res) {
+    resumeid = req.params.resumeid;
+
     res.render('edit-resume', {
-        title: 'Edit the resume'
+        title: 'Edit the resume',
+        resumeid: resumeid
     });
 };
 
@@ -70,7 +73,7 @@ module.exports.doEditResume = function (req, res) {
 
             //redirect to resumes listing if resume was added succesfully or show an error page if API returned an error
             if (response.statusCode === 201) {
-                res.redirect('/create-resume-success');
+                res.redirect('/mod-resume-success');
             } else {
                 console.log(body);
             }

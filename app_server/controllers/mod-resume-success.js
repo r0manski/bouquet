@@ -5,6 +5,6 @@ var apiOptions = {
 
 //GET create-resume-success page
 
-module.exports.createResumeSuccess = function (req, res) {
-    res.render('create-resume-success', {title: 'Add your resume'});
+module.exports.modResumeSuccess = function (req, res) {
+    res.render('mod-resume-success', {title: 'bouQuet'});
 };
