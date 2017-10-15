@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require('mongoose');
 
 //defining and connecting to Mongo DB

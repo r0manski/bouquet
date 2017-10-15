@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require( 'mongoose' );
 var crypto = require('crypto'); //including the library for data encryption
 var jwt = require('jsonwebtoken'); //library for JWT - JASON Web Token

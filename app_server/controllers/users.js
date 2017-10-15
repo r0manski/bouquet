@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require('mongoose');
 var Usr = mongoose.model('User');
 
@@ -5,7 +7,7 @@ var Usr = mongoose.model('User');
 //Temporarily making query from here, needs to be moved to API.
 
 module.exports.profile = function (req, res, next) {
-    username = req.params.username;
+    var username = req.params.username;
     Usr.findOne(
         { email: username}, function (err, user) {
         if(err) {return next(err); }
@@ -17,7 +19,7 @@ module.exports.profile = function (req, res, next) {
 
 module.exports.adminProfile = function (req, res) {
     if (req.decoded.isAdmin === true){
-        username = req.params.username;
+        var username = req.params.username;
 
         Usr.findOne(
             { email: username}, function (err, user) {

@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require ('mongoose');
 
 // declaring schema for resume

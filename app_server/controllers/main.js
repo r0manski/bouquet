@@ -1,3 +1,4 @@
+'use strict';
 
 //Get Home page
 
