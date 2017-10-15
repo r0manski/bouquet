@@ -201,6 +201,9 @@
                 }
             });
 
+            $('#editBtn').click(function(e) {
+                window.location = "/edit-resume/" + resumeId;
+            });
 
             $('#removeBtn').click(function(e) {
                 $.ajax({
