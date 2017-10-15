@@ -9,6 +9,8 @@ var auth = jwt({
 });
 var ctrlResumes = require('../controllers/resumes');
 var ctrlAuth = require('../controllers/authentication');
+var ctrlUsers = require('../controllers/users');
+
 
 // routes for Resumes
 
@@ -19,6 +21,7 @@ router.put('/resumes/:resumeid', auth, ctrlResumes.resumesUpdateOne); //when we 
 router.delete('/resumes/:resumeid', auth, ctrlResumes.resumesDeleteOne);
 router.post('/resumes/search', ctrlResumes.resumesSearch);
 router.put('/resumes/:resumeid', auth, ctrlResumes.resumesUpdateOne);
+
 
 // routes for Authentication
 

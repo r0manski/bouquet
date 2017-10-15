@@ -18,6 +18,11 @@ module.exports.profile = function (req, res, next) {
 };
 
 module.exports.adminProfile = function (req, res) {
+<<<<<<< HEAD
+    //console.log("Logging the Admin");
+    res.render('admin-profile', {name: 'Welcome to admin account' });
+};
+=======
     if (req.decoded.isAdmin === true){
         var username = req.params.username;
 
@@ -32,3 +37,4 @@ module.exports.adminProfile = function (req, res) {
         res.redirect('/');
     }
 };
+>>>>>>> 6e76af01b3cbda3378f25a998731b384d3c6285d
