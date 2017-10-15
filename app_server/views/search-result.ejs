@@ -39,11 +39,13 @@
 
 <script>
     $(document).ready(function() {
+        //get the keyword from the controller
+        var keyword = <%-JSON.stringify(keyword)%>;
 
         $.ajax({
             url: "http://localhost:3000/api/resumes/search",
             data: {
-                keyword: <%-JSON.stringify(keyword)%>
+                keyword: keyword
             },
             type: 'POST'
         }).then(function(data) {
