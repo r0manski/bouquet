@@ -12,14 +12,14 @@
         <form class="form-register" action="" method="post">
             <h2 class="form-register-heading">Register a new account</h2>
             <label class="sr-only">User name</label>
-            <input type="text" name="name" id="inputUsername" class="form-control" placeholder="User name" required="" autofocus="">
+            <input type="text" name="name" id="inputUsername" class="form-control" placeholder="User name">
             <label class="sr-only">Email address</label>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address">
             <label class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
             <hr>
-            <span>Already registered, <a href="sign-in">Sign-in</a>.</span>
+            <span>Already registered, <a href="/sign-in">Sign-in</a>.</span>
         </form>
 
     </div>
@@ -34,29 +34,33 @@
     $(document).ready(function() {
         window.setTimeout(function(){
             var token = localStorage.getItem('token');
-            if(token != null){
+            if(token !== null){
                 window.location = "/error/2";
             }
         }, 1000);
 
         $('form').submit(function(e) {
             e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                data: {
-                    name: $('#inputUsername').val(),
-                    email: $('#inputEmail').val(),
-                    password: $('#inputPassword').val()
-                },
-                url: '/api/register',
-                success: function (data) {
-                    localStorage.setItem('token',data.token);
-                    window.location = "/success/1";
-                },
-                error: function (data) {
-                    window.location = "/error/4";
-                }
-            });
+            if ($('#inputUsername').val() !== "" && $('#inputEmail').val() !== "" && $('#inputPassword').val() !== ""){
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        name: $('#inputUsername').val(),
+                        email: $('#inputEmail').val(),
+                        password: $('#inputPassword').val()
+                    },
+                    url: '/api/register',
+                    success: function (data) {
+                        localStorage.setItem('token',data.token);
+                        window.location = "/success/1";
+                    },
+                    error: function (data) {
+                        window.location = "/error/4";
+                    }
+                });
+            }else{
+                window.location = "/error/11";
+            }
         });
     });
 </script>

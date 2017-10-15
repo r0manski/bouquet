@@ -26,27 +26,27 @@
     'use strict';
     $(document).ready(function() {
         var successid = <%-JSON.stringify(successid)%>;
-        if (successid == "0"){
+        if (successid === "0"){
             $('#successMessage').text("You have successfully logged in.");
             redirectURL("/");
         }
-        if (successid == "1"){
+        if (successid === "1"){
             $('#successMessage').text("You have successfully registered.");
             redirectURL("/");
         }
-        if (successid == "2"){
+        if (successid === "2"){
             $('#successMessage').text("Your resume has been created.");
             redirectURL("/");
         }
-        if (successid == "3"){
+        if (successid === "3"){
             $('#successMessage').text("Your changes have been updated.");
             redirectURL("/");
         }
-        if (successid == "4"){
+        if (successid === "4"){
             $('#successMessage').text("The resume has been successfully deleted.");
             redirectURL("/search-result");
         }
-        if (successid == "5"){
+        if (successid === "5"){
             $('#successMessage').text("You have successfully logged out.");
             redirectURL("/");
         }

@@ -54,29 +54,27 @@ module.exports.resumesList = function (req, res) {
 
             sendJsonResponse(res, 200, resume)
         });
-
-
-    var locations = [];
-    results.forEach(function(doc) {
-        locations.push({
-            distance: theEarth.getDistanceFromRads(doc.dis),
-            name: doc.obj.name,
-            address: doc.obj.address,
-            rating: doc.obj.rating,
-            facilities: doc.obj.facilities,
-            _id: doc.obj._id
-        });
-    });
-    return locations;
-
-    sendJsonResponse(res, 200, {"status" : "success"});
+    // var locations = [];
+    // results.forEach(function(doc) {
+    //     locations.push({
+    //         distance: theEarth.getDistanceFromRads(doc.dis),
+    //         name: doc.obj.name,
+    //         address: doc.obj.address,
+    //         rating: doc.obj.rating,
+    //         facilities: doc.obj.facilities,
+    //         _id: doc.obj._id
+    //     });
+    // });
+    // return locations;
+    //
+    // sendJsonResponse(res, 200, {"status" : "success"});
 };
 
 /* GET a resume by the id */
 module.exports.resumesReadOne = function(req, res) {
     if (req.params && req.params.resumeid) {
         Res
-            .findById(req.params.resumeid)
+            .findById(req.params.resumeid + '')
             .exec(function(err, resume) {
                 if (!resume) {
                     sendJsonResponse(res, 404, {
@@ -104,7 +102,7 @@ module.exports.resumesReadOne = function(req, res) {
 module.exports.resumesDeleteOne = function (req, res) {
     if (req.params && req.params.resumeid) {
         Res
-            .findByIdAndRemove(req.params.resumeid)
+            .findByIdAndRemove(req.params.resumeid + '')
             .exec(function(err, resume) {
                 if (!resume) {
                     sendJsonResponse(res, 404, {
@@ -131,33 +129,33 @@ module.exports.resumesUpdateOne = function (req, res) {
     if (req.params && req.params.resumeid) {
 
         var updateContent = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            gender: req.body.gender,
-            birth: req.body.birth,
-            country: req.body.country,
-            state: req.body.state,
-            city: req.body.city,
-            suburb: req.body.suburb,
-            addr1: req.body.addr1,
-            addr2: req.body.addr2,
-            email: req.body.email,
-            phoneNumber: req.body.phoneNumber,
-            desiredPosition: req.body.desiredPosition,
-            desiredSalary: req.body.desiredSalary,
-            startWork: req.body.startWork,
-            endWork: req.body.endWork,
-            workPlace: req.body.workPlace,
-            workPosition: req.body.workPosition,
-            workAchievement: req.body.workAchievement,
-            eduInstitution: req.body.eduInstitution,
-            eduDepartment: req.body.eduDepartment,
-            eduSpecialization: req.body.eduSpecialization,
-            eduGraduation: req.body.eduGraduation
+            firstName: req.body.firstName + '',
+            lastName: req.body.lastName + '',
+            gender: req.body.gender + '',
+            birth: req.body.birth + '',
+            country: req.body.country + '',
+            state: req.body.state + '',
+            city: req.body.city + '',
+            suburb: req.body.suburb + '',
+            addr1: req.body.addr1 + '',
+            addr2: req.body.addr2 + '',
+            email: req.body.email + '',
+            phoneNumber: req.body.phoneNumber + '',
+            desiredPosition: req.body.desiredPosition + '',
+            desiredSalary: req.body.desiredSalary + '',
+            startWork: req.body.startWork + '',
+            endWork: req.body.endWork + '',
+            workPlace: req.body.workPlace + '',
+            workPosition: req.body.workPosition + '',
+            workAchievement: req.body.workAchievement + '',
+            eduInstitution: req.body.eduInstitution + '',
+            eduDepartment: req.body.eduDepartment + '',
+            eduSpecialization: req.body.eduSpecialization + '',
+            eduGraduation: req.body.eduGraduation + ''
         };
 
         Res
-            .findByIdAndUpdate(req.params.resumeid, updateContent)
+            .findByIdAndUpdate(req.params.resumeid + '', updateContent)
             .exec(function(err, resume) {
                 if (!resume) {
                     sendJsonResponse(res, 404, {
@@ -184,8 +182,8 @@ module.exports.resumesSearch = function (req, res) {
     return Res
         .find({
             $or:[
-                {"firstName": {$regex: req.body.keyword, $options:'i'}},
-                {"lastName": {$regex: req.body.keyword, $options:'i'}}
+                {"firstName": {$regex: req.body.keyword + '', $options:'i'}},
+                {"lastName": {$regex: req.body.keyword + '', $options:'i'}}
             ]
         })
         .exec(function (err, resume) {
@@ -204,6 +202,6 @@ module.exports.resumesSearch = function (req, res) {
     //     });
     // });
     // return locations;
-
-    sendJsonResponse(res, 200, {"status" : "success"});
+    //
+    // sendJsonResponse(res, 200, {"status" : "success"});
 };

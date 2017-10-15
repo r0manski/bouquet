@@ -164,8 +164,7 @@
     'use strict';
     $(document).ready(function() {
         var resumeId = <%-JSON.stringify(resumeid)%>;
-        if (resumeId != ""){
-            var resumeId = <%-JSON.stringify(resumeid)%>;
+        if (resumeId !== ""){
             $.ajax({
                 url: "http://localhost:3000/api/resumes/" + resumeId,
                 type: 'GET',
@@ -208,9 +207,7 @@
                     type: 'DELETE',
                     beforeSend : function(xhr) {
                         // set JWT header
-
                         xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-
                     },
                     url: '/api/resumes/'+<%-JSON.stringify(resumeid)%>,
                     success: function (data) {
@@ -221,11 +218,8 @@
                     }
                 });
             });
-
-
-
         } else {
-            alert("resumeid is missing.");
+            window.location = "/error/7";
         }
     });
 </script>

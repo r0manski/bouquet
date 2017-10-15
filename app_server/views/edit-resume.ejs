@@ -10,7 +10,7 @@
 
 <div class="jumbotron">
     <div class="container">
-        <form class="container" id="resume" action="" method="post">
+        <form class="container" id="resume">
             <h2 class="form-resume-heading">Edit the resume</h2>
             <hr>
             <div class="row">
@@ -164,23 +164,6 @@
             <hr>
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
-
-        <!--<script>-->
-        <!--//Disabling form submissions if there are invalid fields-->
-        <!--(function() {-->
-        <!--"use strict";-->
-        <!--window.addEventListener("load", function() {-->
-        <!--var form = document.getElementById("needs-validation");-->
-        <!--form.addEventListener("submit", function(event) {-->
-        <!--if (form.checkValidity() == false) {-->
-        <!--event.preventDefault();-->
-        <!--event.stopPropagation();-->
-        <!--}-->
-        <!--form.classList.add("was-validated");-->
-        <!--}, false);-->
-        <!--}, false);-->
-        <!--}());-->
-        <!--</script>-->
     </div>
 </div>
 
@@ -192,7 +175,7 @@
     'use strict';
     $(document).ready(function() {
         var resumeId = <%-JSON.stringify(resumeid)%>;
-        if (resumeId != ""){
+        if (resumeId !== ""){
             $.ajax({
                 url: "http://localhost:3000/api/resumes/" + resumeId,
                 type: 'GET',
@@ -226,7 +209,7 @@
                     $('#eduGraduation').val(data.eduGraduation);
                 },
                 error: function (data) {
-                    alert("Error.")
+                    window.location = "/error/7";
                 }
             });
 
@@ -236,9 +219,7 @@
                     type: 'PUT',
                     beforeSend : function(xhr) {
                         // set JWT header
-
                         xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-
                     },
                     data: {
                         firstName: $('#firstName').val(),
@@ -266,8 +247,6 @@
                         eduGraduation: $('#eduGraduation').val()
                     },
 
-//                data: $("#resume").serialize(),
-
                     url: '/api/resumes/' + resumeId,
                     success: function (data) {
                         window.location = "/success/3";
@@ -278,7 +257,7 @@
                 });
             });
         } else {
-            alert("resumeid is missing.");
+            window.location = "/error/7";
         }
     });
 </script>

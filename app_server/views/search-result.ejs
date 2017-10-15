@@ -12,22 +12,6 @@
         <h2 class="form-resume-heading">Search Result</h2>
         <hr>
         <div class="row">
-            <!--<div class="col-sm-6">-->
-                <!--<div class="card">-->
-                    <!--<div class="card-body">-->
-                        <!--<h4 class="card-title">Another Person</h4>-->
-                        <!--<p class="card-text">Software Engineer / University of Technology Sydney</p>-->
-                        <!--<ul class="list-group list-group-flush">-->
-                            <!--<li class="list-group-item">Cras justo odio</li>-->
-                            <!--<li class="list-group-item">Dapibus ac facilisis in</li>-->
-                            <!--<li class="list-group-item">Vestibulum at eros</li>-->
-                        <!--</ul>-->
-                        <!--<div class="card-body">-->
-                            <!--<a href="#" class="btn btn-primary">View</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
             <h2 id="empty" style="margin: 150px auto; display: none;"><i>Nothing but chicken!</i></h2>
         </div>
     </div>
@@ -51,7 +35,7 @@
             type: 'POST'
         }).then(function(data) {
 
-            if (data.length == 0){
+            if (data.length === 0){
                 $('#empty').css("display", "inherit");
             }
 
@@ -78,10 +62,8 @@
                     "                </div>\n" +
                     "            </div>");
             }
-
         });
     });
-
 </script>
 
 </body>

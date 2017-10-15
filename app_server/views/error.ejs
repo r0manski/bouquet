@@ -26,45 +26,53 @@
     'use strict';
     $(document).ready(function() {
         var errorId = <%-JSON.stringify(errorid)%>;
-        if (errorId == "0"){
+        if (errorId === "0"){
             $('#errorMessage').text("Access denied. Please sign in first.");
             redirectURL("/sign-in");
         }
-        if (errorId == "1"){
+        if (errorId === "1"){
             $('#errorMessage').text("Permission denied. You don't have permissions to continue.");
             redirectBack();
         }
-        if (errorId == "2"){
+        if (errorId === "2"){
             $('#errorMessage').text("Already logged in. Please log out first to continue.");
             redirectURL("/");
         }
-        if (errorId == "3"){
+        if (errorId === "3"){
             $('#errorMessage').text("Username or password was incorrect.");
             redirectURL("/sign-in");
         }
-        if (errorId == "4"){
+        if (errorId === "4"){
             $('#errorMessage').text("Username or email address is not available.");
             redirectURL("/register");
         }
-        if (errorId == "5"){
+        if (errorId === "5"){
             $('#errorMessage').text("Search keywords cannot be empty.");
             redirectBack();
         }
-        if (errorId == "6"){
+        if (errorId === "6"){
             $('#errorMessage').text("Create resume failed. Please try again.");
             redirectBack();
         }
-        if (errorId == "7"){
+        if (errorId === "7"){
             $('#errorMessage').text("Edit resume failed. Please try again.");
             redirectBack();
         }
-        if (errorId == "8"){
+        if (errorId === "8"){
             $('#errorMessage').text("Delete resume failed. Please try again.");
             redirectBack();
         }
-        if (errorId == "9"){
+        if (errorId === "9"){
             $('#errorMessage').text("Get resume failed. Please try again.");
             redirectBack();
+        }
+        if (errorId === "10"){
+            $('#errorMessage').text("Email address and password cannot be empty.");
+            redirectURL("/sign-in");
+        }
+        if (errorId === "11"){
+            $('#errorMessage').text("All fields are required. Please try again.");
+            redirectURL("/register");
         }
 
         function redirectBack(){

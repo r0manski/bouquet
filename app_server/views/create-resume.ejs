@@ -10,7 +10,7 @@
 
 <div class="jumbotron">
     <div class="container">
-        <form class="container" id="resume" action="" method="post">
+        <form class="container" id="resume">
             <h2 class="form-resume-heading">Create your resume</h2>
             <hr>
             <div class="row">
@@ -164,23 +164,6 @@
             <hr>
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
-
-        <!--<script>-->
-             <!--//Disabling form submissions if there are invalid fields-->
-             <!--(function() {-->
-                 <!--"use strict";-->
-                 <!--window.addEventListener("load", function() {-->
-                     <!--var form = document.getElementById("needs-validation");-->
-                     <!--form.addEventListener("submit", function(event) {-->
-                         <!--if (form.checkValidity() == false) {-->
-                             <!--event.preventDefault();-->
-                             <!--event.stopPropagation();-->
-                         <!--}-->
-                         <!--form.classList.add("was-validated");-->
-                     <!--}, false);-->
-                 <!--}, false);-->
-             <!--}());-->
-        <!--</script>-->
     </div>
 </div>
 
@@ -193,7 +176,7 @@
     $(document).ready(function() {
         window.setTimeout(function(){
             var token = localStorage.getItem('token');
-            if(token == null){
+            if(token === null){
                 window.location = "/error/0";
             }
         }, 1000);
@@ -233,8 +216,6 @@
                     eduSpecialization: $('#eduSpecialization').val(),
                     eduGraduation: $('#eduGraduation').val()
                 },
-
-//                data: $("#resume").serialize(),
 
                 url: '/api/resumes',
                 success: function (data) {

@@ -13,12 +13,12 @@
         <form class="form-signin" action="" method="post">
             <h2 class="form-signin-heading">Sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             <hr>
-            <span><a href="register">Register</a> a new account.</span>
+            <span><a href="/register">Register</a> a new account.</span>
         </form>
 
     </div>
@@ -35,28 +35,32 @@
     $(document).ready(function() {
         window.setTimeout(function(){
             var token = localStorage.getItem('token');
-            if(token != null){
+            if(token !== null){
                 window.location = "/error/2";
             }
         }, 1000);
 
         $('form').submit(function(e) {
             e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                data: {
-                    email: $('#inputEmail').val(),
-                    password: $('#inputPassword').val()
-                },
-                url: '/api/login',
-                success: function (data) {
-                    localStorage.setItem('token',data.token);
-                    window.location = "/success/0";
-                },
-                error: function (data) {
-                    window.location = "/error/3";
-                }
-            });
+            if ($('#inputEmail').val() !== "" && $('#inputPassword').val() !== ""){
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        email: $('#inputEmail').val(),
+                        password: $('#inputPassword').val()
+                    },
+                    url: '/api/login',
+                    success: function (data) {
+                        localStorage.setItem('token',data.token);
+                        window.location = "/success/0";
+                    },
+                    error: function (data) {
+                        window.location = "/error/3";
+                    }
+                });
+            }else{
+                window.location = "/error/10";
+            }
         });
     });
 </script>

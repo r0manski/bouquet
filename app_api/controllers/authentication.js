@@ -20,8 +20,8 @@ module.exports.register = function(req, res) {
     }
     //create a new user instance and set a name and email
     var user = new User();
-    user.name = req.body.name;
-    user.email = req.body.email;
+    user.name = req.body.name + '';
+    user.email = req.body.email + '';
     //setting salt and hash
     user.setPassword(req.body.password);
     //saving a new user to Mongo
