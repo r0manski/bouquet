@@ -37,7 +37,7 @@ router.get('/mod-resume-success', ctrlModResumeSuccess.modResumeSuccess);
 router.get('/users/:username', ctrlUsers.profile);
 
 /* GET admin page */
-router.get('/admin/:username', ctrlUsers.adminProfile);
+router.get('/admin', ctrlUsers.adminProfile);
 
 /* GET home page */
 router.get('/', ctrlMain.index);
