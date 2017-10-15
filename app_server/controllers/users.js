@@ -15,13 +15,18 @@ module.exports.profile = function (req, res, next) {
 
 };
 
-module.exports.adminProfile = function (req, res, next) {
-    username = req.params.username;
-    Usr.findOne(
-        { email: username}, function (err, user) {
-            if(err) {return next(err); }
-            if (!user) {return next(404); }
-            res.render('admin_profile', {title: 'Welcome to ADMIN account', user: user });
-        });
+module.exports.adminProfile = function (req, res) {
+    if (req.decoded.isAdmin === true){
+        username = req.params.username;
 
+        Usr.findOne(
+            { email: username}, function (err, user) {
+                if(err) {return next(err); }
+                if (!user) {return next(404); }
+                res.render('admin_profile', {title: 'Welcome to ADMIN account', user: user });
+            });
+    } else {
+
+        res.redirect('/');
+    }
 };
