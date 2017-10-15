@@ -35,6 +35,9 @@ module.exports.searchResult = function (req, res) {
 
 module.exports.search = function (req, res) {
     var keyword = req.params.keyword;
+    if (keyword == null){
+        keyword = "";
+    }
 
     res.render('search-result', { keyword: keyword });
     // res.redirect('search-result');

@@ -74,6 +74,10 @@
             $('#errorMessage').text("All fields are required. Please try again.");
             redirectURL("/register");
         }
+        if (errorId === "12"){
+            $('#errorMessage').text("Search keywords can only be letters.");
+            redirectURL("/register");
+        }
 
         function redirectBack(){
             window.setTimeout(function(){

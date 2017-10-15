@@ -27,42 +27,43 @@
         //get the keyword from the controller
         var keyword = <%-JSON.stringify(keyword)%>;
 
-        $.ajax({
-            url: "http://localhost:3000/api/resumes/search",
-            data: {
-                keyword: keyword
-            },
-            type: 'POST'
-        }).then(function(data) {
 
-            if (data.length === 0){
-                $('#empty').css("display", "inherit");
-            }
+        if (keyword === ""){
+            $('#empty').css("display", "inherit");
+        }else {
+            $.ajax({
+                url: "http://localhost:3000/api/resumes/search",
+                data: {
+                    keyword: keyword
+                },
+                type: 'POST'
+            }).then(function (data) {
 
-            for (var i = 0; i < data.length; i++){
+                for (var i = 0; i < data.length; i++) {
 
-                var fullName = data[i].firstName + " " + data[i].lastName;
-                var info = data[i].gender + " / " + data[i].country + " " + data[i].state + " " + data[i].city;
+                    var fullName = data[i].firstName + " " + data[i].lastName;
+                    var info = data[i].gender + " / " + data[i].country + " " + data[i].state + " " + data[i].city;
 
-                $('.row').append("            <div class=\"col-sm-6\">\n" +
-                    "                <div class=\"card\">\n" +
-                    "                    <div class=\"card-body\">\n" +
-                    "                        <span style='float: right'><i>"+ data[i]._id +"</i></span>\n" +
-                    "                        <h4 class=\"card-title\">"+ fullName +"</h4>\n" +
-                    "                        <p class=\"card-text\">"+ info +"</p>\n" +
-                    "                        <ul class=\"list-group list-group-flush\">\n" +
-                    "                            <li class=\"list-group-item\"><i>Email address:</i> "+ data[i].email +"</li>\n" +
-                    "                            <li class=\"list-group-item\"><i>Phone number:</i> "+ data[i].phoneNumber +"</li>\n" +
-                    "                            <li class=\"list-group-item\"><i>Birthday:</i> "+ data[i].birth +"</li>\n" +
-                    "                        </ul>\n" +
-                    "                        <div class=\"card-body\">\n" +
-                    "                            <a href=\"/view-resume/"+data[i]._id+"\" class=\"btn btn-primary\">View</a>\n" +
-                    "                        </div>\n" +
-                    "                    </div>\n" +
-                    "                </div>\n" +
-                    "            </div>");
-            }
-        });
+                    $('.row').append("            <div class=\"col-sm-6\">\n" +
+                        "                <div class=\"card\">\n" +
+                        "                    <div class=\"card-body\">\n" +
+                        "                        <span style='float: right'><i>" + data[i]._id + "</i></span>\n" +
+                        "                        <h4 class=\"card-title\">" + fullName + "</h4>\n" +
+                        "                        <p class=\"card-text\">" + info + "</p>\n" +
+                        "                        <ul class=\"list-group list-group-flush\">\n" +
+                        "                            <li class=\"list-group-item\"><i>Email address:</i> " + data[i].email + "</li>\n" +
+                        "                            <li class=\"list-group-item\"><i>Phone number:</i> " + data[i].phoneNumber + "</li>\n" +
+                        "                            <li class=\"list-group-item\"><i>Birthday:</i> " + data[i].birth + "</li>\n" +
+                        "                        </ul>\n" +
+                        "                        <div class=\"card-body\">\n" +
+                        "                            <a href=\"/view-resume/" + data[i]._id + "\" class=\"btn btn-primary\">View</a>\n" +
+                        "                        </div>\n" +
+                        "                    </div>\n" +
+                        "                </div>\n" +
+                        "            </div>");
+                }
+            });
+        }
     });
 </script>
 

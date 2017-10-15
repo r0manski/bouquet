@@ -13,7 +13,11 @@
 
         $('#searchBtn').click(function(){
             if ($('#searchInput').val() !== ""){
-                window.location = "/search-result/" + $('#searchInput').val();
+                if (validator.isAlpha($('#searchInput').val())){
+                    window.location = "/search-result/" + $('#searchInput').val();
+                }else {
+                    window.location = "/error/12";
+                }
             }else{
                 window.location = "/error/5";
             }

@@ -7,7 +7,6 @@ var auth = jwt({
     secret: process.env.JWT_SECRET,
     userProperty: 'payload' //define property on req to be payload
 });
-var ctrlUsers = require('../controllers/users');
 var ctrlMain = require('../controllers/main');
 var ctrlSearchResult = require('../controllers/search-result');
 var ctrlViewResume = require('../controllers/view-resume');
@@ -27,14 +26,8 @@ router.post('/create-resume', auth, ctrlCreateResume.doCreateResume);
 /* GET view resume page */
 router.get('/view-resume/:resumeid', ctrlViewResume.viewResume);
 
-/* GET create resumes list */
-router.get('/search-result', ctrlSearchResult.searchResult);
-
-/* GET user page */
-router.get('/users/:username', ctrlUsers.profile);
-
-/* GET admin page */
-router.get('/admin', ctrlUsers.adminProfile);
+/* GET search result page */
+router.get('/search-result', ctrlSearchResult.search);
 
 /* GET home page */
 router.get('/', ctrlMain.index);
