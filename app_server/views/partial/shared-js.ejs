@@ -5,9 +5,27 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script>
+    'use strict';
     $(document).ready(function() {
-        $('#searchBtn').click(function(e){
-            window.location = "/search-result/" + $('#searchInput').val();
+        var token = localStorage.getItem('token');
+        if(token != null){
+            $('#signOutBtn').css("display", "inherit");
+        }else{
+            $('#signOutBtn').css("display", "none");
+        }
+
+
+        $('#searchBtn').click(function(){
+            if ($('#searchInput').val() != ""){
+                window.location = "/search-result/" + $('#searchInput').val();
+            }else{
+                window.location = "/error/5";
+            }
+        });
+
+        $('#signOutBtn').click(function(){
+            localStorage.removeItem('token');
+            window.location = "/success/5";
         });
     });
 </script>

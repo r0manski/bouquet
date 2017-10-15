@@ -189,21 +189,14 @@
 <%- include partial/shared-js.ejs %>
 
 <script>
+    'use strict';
     $(document).ready(function() {
-        //check current user login status
+        window.setTimeout(function(){
             var token = localStorage.getItem('token');
-            $.ajax({
-                type: 'POST',
-                data: token,
-                url: '/api/login',
-    //            success: function (data) {
-    //                localStorage.setItem('token',data.token);
-    //                window.location = "/sign-in-success";
-    //            },
-    //            error: function (data) {
-    //                alert("Tokens invalid.");
-    //            }
-            });
+            if(token == null){
+                window.location = "/error/0";
+            }
+        }, 1000);
 
         $('form').submit(function(e) {
             e.preventDefault();
@@ -245,16 +238,15 @@
 
                 url: '/api/resumes',
                 success: function (data) {
-                    window.location = "/mod-resume-success";
+                    window.location = "/success/2";
                 },
                 error: function (data) {
-                    alert("Create resume failed.");
+                    window.location = "/error/6";
                 }
             });
         });
     });
 </script>
-
 
 </body>
 </html>

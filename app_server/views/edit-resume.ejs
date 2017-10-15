@@ -189,9 +189,10 @@
 <%- include partial/shared-js.ejs %>
 
 <script>
+    'use strict';
     $(document).ready(function() {
-        if (<%-JSON.stringify(resumeid)%> != ""){
-            var resumeId = <%-JSON.stringify(resumeid)%>;
+        var resumeId = <%-JSON.stringify(resumeid)%>;
+        if (resumeId != ""){
             $.ajax({
                 url: "http://localhost:3000/api/resumes/" + resumeId,
                 type: 'GET',
@@ -269,10 +270,10 @@
 
                     url: '/api/resumes/' + resumeId,
                     success: function (data) {
-                        window.location = "/mod-resume-success";
+                        window.location = "/success/3";
                     },
                     error: function (data) {
-                        alert("Edit resume failed.");
+                        window.location = "/error/7";
                     }
                 });
             });
@@ -281,7 +282,6 @@
         }
     });
 </script>
-
 
 </body>
 </html>

@@ -1,3 +1,85 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include partial/head.ejs %>
+
+<body>
+
+<%- include partial/nav.ejs %>
+
+<div class="jumbotron m-register">
+    <div class="container m-register-middle">
+        <form class="form-register">
+            <h2 class="form-register-heading">Error</h2>
+            <span id="errorMessage"></span>
+            <hr>
+            <i>Redirecting in 3 seconds...</i>
+        </form>
+    </div>
+</div>
+
+<%- include partial/footer.ejs %>
+
+<%- include partial/shared-js.ejs %>
+
+<script>
+    'use strict';
+    $(document).ready(function() {
+        var errorId = <%-JSON.stringify(errorid)%>;
+        if (errorId == "0"){
+            $('#errorMessage').text("Access denied. Please sign in first.");
+            redirectURL("/sign-in");
+        }
+        if (errorId == "1"){
+            $('#errorMessage').text("Permission denied. You don't have permissions to continue.");
+            redirectBack();
+        }
+        if (errorId == "2"){
+            $('#errorMessage').text("Already logged in. Please log out first to continue.");
+            redirectURL("/");
+        }
+        if (errorId == "3"){
+            $('#errorMessage').text("Username or password was incorrect.");
+            redirectURL("/sign-in");
+        }
+        if (errorId == "4"){
+            $('#errorMessage').text("Username or email address is not available.");
+            redirectURL("/register");
+        }
+        if (errorId == "5"){
+            $('#errorMessage').text("Search keywords cannot be empty.");
+            redirectBack();
+        }
+        if (errorId == "6"){
+            $('#errorMessage').text("Create resume failed. Please try again.");
+            redirectBack();
+        }
+        if (errorId == "7"){
+            $('#errorMessage').text("Edit resume failed. Please try again.");
+            redirectBack();
+        }
+        if (errorId == "8"){
+            $('#errorMessage').text("Delete resume failed. Please try again.");
+            redirectBack();
+        }
+        if (errorId == "9"){
+            $('#errorMessage').text("Get resume failed. Please try again.");
+            redirectBack();
+        }
+
+        function redirectBack(){
+            window.setTimeout(function(){
+                history.back();
+            }, 3000);
+        }
+
+        function redirectURL(url){
+            window.setTimeout(function(){
+                window.location = url;
+            }, 3000);
+        }
+    });
+</script>
+
+</body>
+</html>

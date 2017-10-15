@@ -161,16 +161,14 @@
 <%- include partial/shared-js.ejs %>
 
 <script>
+    'use strict';
     $(document).ready(function() {
-        if (<%-JSON.stringify(resumeid)%> != ""){
+        var resumeId = <%-JSON.stringify(resumeid)%>;
+        if (resumeId != ""){
             var resumeId = <%-JSON.stringify(resumeid)%>;
             $.ajax({
                 url: "http://localhost:3000/api/resumes/" + resumeId,
                 type: 'GET',
-                beforeSend : function(xhr) {
-                    // set JWT header
-                    xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-                },
                 success: function (data) {
                     $('#firstName').text(data.firstName);
                     $('#lastName').text(data.lastName);
@@ -197,7 +195,7 @@
                     $('#eduGraduation').text(data.eduGraduation);
                 },
                 error: function (data) {
-                    alert("Error.")
+                    window.location.href = "/error/9";
                 }
             });
 
@@ -216,11 +214,10 @@
                     },
                     url: '/api/resumes/'+<%-JSON.stringify(resumeid)%>,
                     success: function (data) {
-                        alert("Successfully deleted.")
-                        window.location.href = "/search-result";
+                        window.location.href = "/success/4";
                     },
                     error: function (data) {
-                        alert("Error.");
+                        window.location.href = "/error/8";
                     }
                 });
             });

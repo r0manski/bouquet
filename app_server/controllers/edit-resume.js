@@ -1,3 +1,5 @@
+'use strict';
+
 var request = require('request');
 var apiOptions = {
     server : "http://localhost:3000"
@@ -10,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 /* function to render the create-resume page */
 
 var renderEditResumeForm = function (req, res) {
-    resumeid = req.params.resumeid;
+    var resumeid = req.params.resumeid;
 
     res.render('edit-resume', {
         title: 'Edit the resume',

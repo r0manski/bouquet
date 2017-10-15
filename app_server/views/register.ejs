@@ -17,11 +17,6 @@
             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
             <label class="sr-only">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> I have read and agree to our <a href="#">Terms of Service</a>.
-                </label>
-            </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
             <hr>
             <span>Already registered, <a href="sign-in">Sign-in</a>.</span>
@@ -35,20 +30,14 @@
 <%- include partial/shared-js.ejs %>
 
 <script type="text/javascript">
+    'use strict';
     $(document).ready(function() {
-        //check current user login status
-        var token = localStorage.getItem('token');
-        $.ajax({
-            url: '/api/login',
-            type: 'POST',
-            data: token,
-//            success: function (data) {
-//                alert("You have already registered.")
-//            },
-//            error: function (data) {
-//                alert("Tokens invalid.");
-//            }
-        });
+        window.setTimeout(function(){
+            var token = localStorage.getItem('token');
+            if(token != null){
+                window.location = "/error/2";
+            }
+        }, 1000);
 
         $('form').submit(function(e) {
             e.preventDefault();
@@ -62,10 +51,10 @@
                 url: '/api/register',
                 success: function (data) {
                     localStorage.setItem('token',data.token);
-                    window.location = "/register-success";
+                    window.location = "/success/1";
                 },
                 error: function (data) {
-                    alert("Username or email address is not available.");
+                    window.location = "/error/4";
                 }
             });
         });

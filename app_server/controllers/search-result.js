@@ -1,3 +1,5 @@
+'use strict';
+
 var request = require('request');
 var apiOptions = {
     server : "http://localhost:3000"
@@ -32,7 +34,7 @@ module.exports.searchResult = function (req, res) {
 };
 
 module.exports.search = function (req, res) {
-    keyword = req.params.keyword;
+    var keyword = req.params.keyword;
 
     res.render('search-result', { keyword: keyword });
     // res.redirect('search-result');
