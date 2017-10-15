@@ -150,9 +150,11 @@
                 <p id="eduGraduation"></p>
             </div>
         </div>
-        <hr>
-        <a href="#" id="editBtn" class="btn btn-primary">Edit</a>
-        <a href="#" id="removeBtn" class="btn btn-danger">Delete</a>
+        <div id="admin" style="display: none;">
+            <hr>
+            <a href="#" id="editBtn" class="btn btn-primary">Edit</a>
+            <a href="#" id="removeBtn" class="btn btn-danger">Delete</a>
+        </div>
     </div>
 </div>
 
@@ -163,6 +165,11 @@
 <script>
     'use strict';
     $(document).ready(function() {
+        var isAdmin = localStorage.getItem('isAdmin');
+        if (isAdmin){
+            $('#admin').css("display", "inherit");
+        }
+
         var resumeId = <%-JSON.stringify(resumeid)%>;
         if (resumeId !== ""){
             $.ajax({
@@ -214,7 +221,7 @@
                         window.location.href = "/success/4";
                     },
                     error: function (data) {
-                        window.location.href = "/error/8";
+                        window.location.href = "/error/1";
                     }
                 });
             });

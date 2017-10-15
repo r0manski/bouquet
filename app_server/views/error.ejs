@@ -31,8 +31,8 @@
             redirectURL("/sign-in");
         }
         if (errorId === "1"){
-            $('#errorMessage').text("Permission denied. You don't have permissions to continue.");
-            redirectBack();
+            $('#errorMessage').text("Permission denied. You don't have permissions.");
+            redirectURL("/");
         }
         if (errorId === "2"){
             $('#errorMessage').text("Already logged in. Please log out first to continue.");

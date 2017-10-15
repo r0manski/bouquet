@@ -21,6 +21,7 @@
 
         $('#signOutBtn').click(function(){
             localStorage.removeItem('token');
+            localStorage.removeItem('isAdmin');
             window.location = "/success/5";
         });
     });

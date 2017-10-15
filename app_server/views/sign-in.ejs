@@ -52,6 +52,9 @@
                     url: '/api/login',
                     success: function (data) {
                         localStorage.setItem('token',data.token);
+                        if (parseJwt(data.token).isAdmin){
+                            localStorage.setItem('isAdmin', true);
+                        }
                         window.location = "/success/0";
                     },
                     error: function (data) {
@@ -62,6 +65,12 @@
                 window.location = "/error/10";
             }
         });
+
+        function parseJwt (token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace('-', '+').replace('_', '/');
+            return JSON.parse(window.atob(base64));
+        };
     });
 </script>
 
