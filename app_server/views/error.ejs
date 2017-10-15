@@ -36,7 +36,7 @@
         }
         if (errorId == "2"){
             $('#errorMessage').text("Already logged in. Please log out first to continue.");
-            redirectBack();
+            redirectURL("/");
         }
         if (errorId == "3"){
             $('#errorMessage').text("Username or password was incorrect.");
@@ -48,6 +48,22 @@
         }
         if (errorId == "5"){
             $('#errorMessage').text("Search keywords cannot be empty.");
+            redirectBack();
+        }
+        if (errorId == "6"){
+            $('#errorMessage').text("Create resume failed. Please try again.");
+            redirectBack();
+        }
+        if (errorId == "7"){
+            $('#errorMessage').text("Edit resume failed. Please try again.");
+            redirectBack();
+        }
+        if (errorId == "8"){
+            $('#errorMessage').text("Delete resume failed. Please try again.");
+            redirectBack();
+        }
+        if (errorId == "9"){
+            $('#errorMessage').text("Get resume failed. Please try again.");
             redirectBack();
         }
 

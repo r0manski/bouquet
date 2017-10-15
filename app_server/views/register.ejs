@@ -51,7 +51,7 @@
                 url: '/api/register',
                 success: function (data) {
                     localStorage.setItem('token',data.token);
-                    window.location = "/register-success";
+                    window.location = "/success/1";
                 },
                 error: function (data) {
                     window.location = "/error/4";

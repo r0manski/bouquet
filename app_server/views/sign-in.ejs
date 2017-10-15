@@ -51,7 +51,7 @@
                 url: '/api/login',
                 success: function (data) {
                     localStorage.setItem('token',data.token);
-                    window.location = "/sign-in-success";
+                    window.location = "/success/0";
                 },
                 error: function (data) {
                     window.location = "/error/3";

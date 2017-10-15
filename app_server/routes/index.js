@@ -14,11 +14,9 @@ var ctrlViewResume = require('../controllers/view-resume');
 var ctrlCreateResume = require('../controllers/create-resume');
 var ctrlSignIn = require('../controllers/sign-in');
 var ctrlRegister = require('../controllers/register');
-var ctrlSignInSuccess = require('../controllers/sign-in-success');
-var ctrlRegisterSuccess = require('../controllers/register-success');
-var ctrlModResumeSuccess = require('../controllers/mod-resume-success');
 var ctrlEditResume = require('../controllers/edit-resume');
 var ctrlError = require('../controllers/error');
+var ctrlSuccess = require('../controllers/success');
 
 /* GET create resume page */
 router.get('/create-resume', ctrlCreateResume.createResume);
@@ -31,9 +29,6 @@ router.get('/view-resume/:resumeid', ctrlViewResume.viewResume);
 
 /* GET create resumes list */
 router.get('/search-result', ctrlSearchResult.searchResult);
-
-/* GET mod-resume-success page */
-router.get('/mod-resume-success', ctrlModResumeSuccess.modResumeSuccess);
 
 /* GET user page */
 router.get('/users/:username', ctrlUsers.profile);
@@ -50,28 +45,25 @@ router.get('/sign-in', ctrlSignIn.login);
 /* Post sign-in page */
 router.post('/sign-in', ctrlSignIn.doLogin);
 
-/* GET sign-in-success page */
-router.get('/sign-in-success', ctrlSignInSuccess.loginSuccess);
-
 /* GET registration page */
 router.get('/register', ctrlRegister.register);
 
 /* POST registration page */
 router.post('/register', ctrlRegister.doRegister);
 
-/* GET register-success page */
-router.get('/register-success', ctrlRegisterSuccess.registerSuccess);
-
 /* GET search-result page (based on search keywords) */
 router.get('/search-result/:keyword', ctrlSearchResult.search);
 
 /* GET edit-resume page */
-router.get('/edit-resume/:resumeid', ctrlEditResume.editResume)
+router.get('/edit-resume/:resumeid', ctrlEditResume.editResume);
 
 /* UPDATE edit-resume page */
-router.post('/edit-resume', auth, ctrlEditResume.doEditResume)
+router.post('/edit-resume', auth, ctrlEditResume.doEditResume);
 
-/* GET error page*/
+/* GET error page */
 router.get('/error/:errorid', ctrlError.error);
+
+/* GET success page */
+router.get('/success/:successid', ctrlSuccess.success);
 
 module.exports=router;

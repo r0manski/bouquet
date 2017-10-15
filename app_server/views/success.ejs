@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include partial/head.ejs %>
+
+<body>
+
+<%- include partial/nav.ejs %>
+
+<div class="jumbotron m-register">
+    <div class="container m-register-middle">
+        <form class="form-register">
+            <h2 class="form-register-heading">Success</h2>
+            <span id="successMessage"></span>
+            <hr>
+            <i>Redirecting in 3 seconds...</i>
+        </form>
+    </div>
+</div>
+
+<%- include partial/footer.ejs %>
+
+<%- include partial/shared-js.ejs %>
+
+<script>
+    'use strict';
+    $(document).ready(function() {
+        var successid = <%-JSON.stringify(successid)%>;
+        if (successid == "0"){
+            $('#successMessage').text("You have successfully logged in.");
+            redirectURL("/");
+        }
+        if (successid == "1"){
+            $('#successMessage').text("You have successfully registered.");
+            redirectURL("/");
+        }
+        if (successid == "2"){
+            $('#successMessage').text("Your resume has been created.");
+            redirectURL("/");
+        }
+        if (successid == "3"){
+            $('#successMessage').text("Your changes have been updated.");
+            redirectURL("/");
+        }
+        if (successid == "4"){
+            $('#successMessage').text("The resume has been successfully deleted.");
+            redirectURL("/search-result");
+        }
+        if (successid == "5"){
+            $('#successMessage').text("You have successfully logged out.");
+            redirectURL("/");
+        }
+
+        function redirectBack(){
+            window.setTimeout(function(){
+                history.back();
+            }, 3000);
+        }
+
+        function redirectURL(url){
+            window.setTimeout(function(){
+                window.location = url;
+            }, 3000);
+        }
+    });
+</script>
+
+</body>
+</html>

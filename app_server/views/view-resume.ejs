@@ -195,7 +195,7 @@
                     $('#eduGraduation').text(data.eduGraduation);
                 },
                 error: function (data) {
-                    alert("Error.")
+                    window.location.href = "/error/9";
                 }
             });
 
@@ -214,11 +214,10 @@
                     },
                     url: '/api/resumes/'+<%-JSON.stringify(resumeid)%>,
                     success: function (data) {
-                        alert("Successfully deleted.")
-                        window.location.href = "/search-result";
+                        window.location.href = "/success/4";
                     },
                     error: function (data) {
-                        alert("Error.");
+                        window.location.href = "/error/8";
                     }
                 });
             });
