@@ -162,15 +162,12 @@
 
 <script>
     $(document).ready(function() {
-        if (<%-JSON.stringify(resumeid)%> != ""){
+        var resumeId = <%-JSON.stringify(resumeid)%>;
+        if (resumeId != ""){
             var resumeId = <%-JSON.stringify(resumeid)%>;
             $.ajax({
                 url: "http://localhost:3000/api/resumes/" + resumeId,
                 type: 'GET',
-                beforeSend : function(xhr) {
-                    // set JWT header
-                    xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-                },
                 success: function (data) {
                     $('#firstName').text(data.firstName);
                     $('#lastName').text(data.lastName);

@@ -16,7 +16,7 @@ var ctrlSignInSuccess = require('../controllers/sign-in-success');
 var ctrlRegisterSuccess = require('../controllers/register-success');
 var ctrlModResumeSuccess = require('../controllers/mod-resume-success');
 var ctrlEditResume = require('../controllers/edit-resume');
-
+var ctrlError = require('../controllers/error');
 
 /* GET create resume page */
 router.get('/create-resume', ctrlCreateResume.createResume);
@@ -68,5 +68,8 @@ router.get('/edit-resume/:resumeid', ctrlEditResume.editResume)
 
 /* UPDATE edit-resume page */
 router.post('/edit-resume', auth, ctrlEditResume.doEditResume)
+
+/* GET error page*/
+router.get('/error/:errorid', ctrlError.error);
 
 module.exports=router;

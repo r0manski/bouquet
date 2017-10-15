@@ -12,7 +12,7 @@ var ctrlAuth = require('../controllers/authentication');
 
 router.get('/resumes', ctrlResumes.resumesList);
 router.post('/resumes', auth, ctrlResumes.resumesDoCreate);
-router.get('/resumes/:resumeid', auth, ctrlResumes.resumesReadOne);
+router.get('/resumes/:resumeid', ctrlResumes.resumesReadOne);
 router.put('/resumes/:resumeid', auth, ctrlResumes.resumesUpdateOne); //when we add auth as a middleware it will be required to authenticate before accessing this end point
 router.delete('/resumes/:resumeid', auth, ctrlResumes.resumesDeleteOne);
 router.post('/resumes/search', ctrlResumes.resumesSearch);

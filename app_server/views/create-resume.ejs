@@ -190,20 +190,12 @@
 
 <script>
     $(document).ready(function() {
-        //check current user login status
+        window.setTimeout(function(){
             var token = localStorage.getItem('token');
-            $.ajax({
-                type: 'POST',
-                data: token,
-                url: '/api/login',
-    //            success: function (data) {
-    //                localStorage.setItem('token',data.token);
-    //                window.location = "/sign-in-success";
-    //            },
-    //            error: function (data) {
-    //                alert("Tokens invalid.");
-    //            }
-            });
+            if(token == null){
+                window.location = "/error/0";
+            }
+        }, 1000);
 
         $('form').submit(function(e) {
             e.preventDefault();

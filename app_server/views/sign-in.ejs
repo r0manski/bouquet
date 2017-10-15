@@ -16,11 +16,6 @@
             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             <hr>
             <span><a href="register">Register</a> a new account.</span>
@@ -37,19 +32,12 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        //check current user login status
-        var token = localStorage.getItem('token');
-        $.ajax({
-            url: '/api/login',
-            type: 'POST',
-            data: token,
-//            success: function (data) {
-//                alert("You have already logged in.")
-//            },
-//            error: function (data) {
-//                alert("Tokens invalid.");
-//            }
-        });
+        window.setTimeout(function(){
+            var token = localStorage.getItem('token');
+            if(token != null){
+                window.location = "/error/2";
+            }
+        }, 1000);
 
         $('form').submit(function(e) {
             e.preventDefault();
@@ -65,7 +53,7 @@
                     window.location = "/sign-in-success";
                 },
                 error: function (data) {
-                    alert("Username or password incorrect.");
+                    window.location = "/error/3";
                 }
             });
         });
