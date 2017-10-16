@@ -29,6 +29,9 @@
 <script>
     'use strict';
     $(document).ready(function() {
+
+        // check the current user's login status
+
         window.setTimeout(function(){
             var token = localStorage.getItem('token');
             if(token === null){
@@ -36,9 +39,11 @@
             }
         }, 1000);
 
-<%- include partial/resume-form-validation.js %>
+        // include the resume-form-validation.js to perform validations for the inputs
 
-        $('form').submit(function(e) {
+        <%- include partial/resume-form-validation.js %>
+
+        $('#resume').submit(function(e) {
             e.preventDefault();
             //validate the compulsory fields are not empty and valid
             if (formValidation()){

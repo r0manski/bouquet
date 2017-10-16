@@ -30,12 +30,17 @@
 <script>
     'use strict';
     $(document).ready(function() {
+
+        // check the current user is an admin
+
         window.setTimeout(function(){
             var isAdmin = localStorage.getItem('isAdmin');
             if (!isAdmin){
                 window.location.href = "/error/1";
             }
         }, 1000);
+
+        // get the resumeid and check if it is not empty, then fetch the resume data based on the resume id
 
         var resumeId = <%-JSON.stringify(resumeid)%>;
         if (resumeId !== ""){
@@ -76,10 +81,14 @@
                 }
             });
 
-            $('form').submit(function(e) {
+            // add submit button functionality
+
+            $('#resume').submit(function(e) {
                 e.preventDefault();
 
-<%- include partial/resume-form-validation.js %>
+                // include the resume-form-validation.js to perform validations for the inputs
+
+                <%- include partial/resume-form-validation.js %>
 
                 if (formValidation()){
                     $.ajax({

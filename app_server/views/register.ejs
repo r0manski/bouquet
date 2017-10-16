@@ -9,7 +9,7 @@
 
 <div class="jumbotron m-register">
     <div class="container">
-        <form class="form-register" action="" method="post">
+        <form class="form-register" id="registerForm">
             <h2 class="form-register-heading">Register a new account</h2>
             <label class="sr-only">User name</label>
             <input type="text" name="name" id="inputUsername" class="form-control" placeholder="User name">
@@ -32,6 +32,9 @@
 <script type="text/javascript">
     'use strict';
     $(document).ready(function() {
+
+        // check the current user's login status
+
         window.setTimeout(function(){
             var token = localStorage.getItem('token');
             if(token !== null){
@@ -39,8 +42,11 @@
             }
         }, 1000);
 
-        $('form').submit(function(e) {
+        $('#registerForm').submit(function(e) {
             e.preventDefault();
+
+            // check the user's input satisfies the requirement
+
             if (validator.isAlphanumeric($('#inputUsername').val()) && validator.isEmail($('#inputEmail').val()) && validator.isAlphanumeric($('#inputPassword').val())){
                 $.ajax({
                     type: 'POST',

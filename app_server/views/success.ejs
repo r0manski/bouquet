@@ -53,6 +53,11 @@
             $('#successMessage').text("You have successfully logged out.");
             redirectURL("/");
         }
+        if (successid === "6"){
+            $('#successMessage').text("The resume has been shared.");
+            redirectURL("/");
+        }
+
 
         function redirectBack(){
             window.setTimeout(function(){

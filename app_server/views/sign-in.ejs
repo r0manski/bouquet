@@ -10,7 +10,7 @@
 
 <div class="jumbotron m-sign-in">
     <div class="container m-sign-in-middle">
-        <form class="form-signin" action="" method="post">
+        <form class="form-signin" id="signinForm">
             <h2 class="form-signin-heading">Sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address">
@@ -33,6 +33,9 @@
 <script>
     'use strict';
     $(document).ready(function() {
+
+        // check the current user's login status
+
         window.setTimeout(function(){
             var token = localStorage.getItem('token');
             if(token !== null){
@@ -40,8 +43,13 @@
             }
         }, 1000);
 
-        $('form').submit(function(e) {
+        // add the submit button functionality
+
+        $('#signinForm').submit(function(e) {
             e.preventDefault();
+
+            // check the user's input satisfies the requirement
+
             if (validator.isEmail($('#inputEmail').val()) && validator.isAlphanumeric($('#inputPassword').val())){
                 $.ajax({
                     type: 'POST',
@@ -66,11 +74,13 @@
             }
         });
 
+        // this function is used to parse JWT tokens
+
         function parseJwt (token) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace('-', '+').replace('_', '/');
             return JSON.parse(window.atob(base64));
-        };
+        }
     });
 </script>
 

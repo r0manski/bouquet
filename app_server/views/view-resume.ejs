@@ -150,11 +150,10 @@
                 <p id="eduGraduation"></p>
             </div>
         </div>
-        <div id="admin" style="display: none;">
-            <hr>
-            <a href="#" id="editBtn" class="btn btn-primary">Edit</a>
-            <a href="#" id="removeBtn" class="btn btn-danger">Delete</a>
-        </div>
+        <hr>
+        <a href="#" id="shareBtn" class="btn btn-primary">Share</a>
+        <a href="#" id="editBtn" class="btn btn-secondary" style="visibility: hidden;">Edit</a>
+        <a href="#" id="removeBtn" class="btn btn-danger" style="visibility: hidden;">Delete</a>
     </div>
 </div>
 
@@ -165,10 +164,16 @@
 <script>
     'use strict';
     $(document).ready(function() {
+
+        // check if the current logged user is a admin, then show the admin components
+
         var isAdmin = localStorage.getItem('isAdmin');
         if (isAdmin){
-            $('#admin').css("display", "inherit");
+            $('#editBtn').css("visibility", "visible");
+            $('#removeBtn').css("visibility", "visible");
         }
+
+        // fetch the current resume data based on the resumeid, then show it in the corresponding fields
 
         var resumeId = <%-JSON.stringify(resumeid)%>;
         if (resumeId !== ""){
@@ -205,11 +210,17 @@
                 }
             });
 
+            // add the edit button functionality
+
             $('#editBtn').click(function(e) {
+                e.preventDefault();
                 window.location = "/edit-resume/" + resumeId;
             });
 
+            // add the remove button functionality
+
             $('#removeBtn').click(function(e) {
+                e.preventDefault();
                 $.ajax({
                     type: 'DELETE',
                     beforeSend : function(xhr) {
@@ -222,6 +233,22 @@
                     },
                     error: function (data) {
                         window.location.href = "/error/1";
+                    }
+                });
+            });
+
+            // add the share button functionality
+
+            $('#shareBtn').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/twitter/'+<%-JSON.stringify(resumeid)%>,
+                    success: function (data) {
+                        window.location.href = "/success/6";
+                    },
+                    error: function (data) {
+                        window.location.href = "/error/14";
                     }
                 });
             });

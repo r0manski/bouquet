@@ -1,3 +1,5 @@
+/* RESUME FORM VALIDATION JAVASCRIPT START - used for both create-resume and edit resume pages */
+
 //initialize form variables
 
 var firstName;
@@ -186,3 +188,5 @@ function formValidation(){
         return false;
     }
 }
+
+/* RESUME FORM VALIDATION JAVASCRIPT START - used for both create-resume and edit resume pages */

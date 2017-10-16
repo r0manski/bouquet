@@ -85,6 +85,10 @@
             $('#errorMessage').text("Create resume failed. One or more fields are invalid.");
             redirectBack();
         }
+        if (errorId === "14"){
+            $('#errorMessage').text("Share resume failed. Please try again.");
+            redirectBack();
+        }
 
         function redirectBack(){
             window.setTimeout(function(){

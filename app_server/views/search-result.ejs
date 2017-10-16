@@ -24,8 +24,9 @@
 <script>
     'use strict';
     $(document).ready(function() {
-        //get the keyword from the controller
         var keyword = <%-JSON.stringify(keyword)%>;
+
+        // show no-result component if the keyword is empty
 
         if (keyword === ""){
             $('#empty').css("display", "inherit");
@@ -37,14 +38,21 @@
                 },
                 type: 'POST'
             }).then(function (data) {
+
+                // if the returned data's length equals to 0, show no-result component
+
                 if (data.length === 0){
                     $('#empty').css("display", "inherit");
                 }
 
                 for (var i = 0; i < data.length; i++) {
 
+                    // get the required preview data in variables
+
                     var fullName = data[i].firstName + " " + data[i].lastName;
                     var info = data[i].gender + " / " + data[i].country + " " + data[i].state + " " + data[i].city;
+
+                    // append each resume preview data in each block
 
                     $('.row').append("            <div class=\"col-sm-6\">\n" +
                         "                <div class=\"card\">\n" +
