@@ -29,6 +29,14 @@ https://aipbouquet.herokuapp.com/
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. You will also need to install and run a [Mongo DB](https://www.mongodb.com/download-center). From your command line:
 
 ```bash
+# Go into the Mongodb installation bin folder
+$ cd $mongodb_root_path/bin
+
+# Run the Mongodb
+$ ./mongod
+```
+
+```bash
 # Clone the repository
 $ git clone https://github.com/r0manski/bouquet.git
 
@@ -74,3 +82,35 @@ For the sake of security in this project environment variables are stored in the
 14.	Do not repeat yourself(DRY)
 15. Write unit and acceptance tests
 
+## Contributing
+
+In general, we welcome anyone who can help us improve our code! 
+You can follow the below steps to start:
+
+1. Fork the project first
+2. Clone the project to your own system
+3. Work on your fork
+4. Make your changes and comments
+5. Add changes to README.md if needed
+6. Commit changes to your own branch
+7. Make sure you merge the latest version from "upstream" and resolve any conflicts if there is
+8. Push your work back up to your fork
+9. Submit a Pull request so that we can review your changes
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+* There are several open sourced frameworks and packages we used in this project, including:
+  - Express.js (https://github.com/expressjs/express)
+  - Helmet (https://github.com/helmetjs/helmet)
+  - Validator (https://github.com/chriso/validator.js/)
+  - Passport (https://github.com/jaredhanson/passport)
+  - Twit (https://github.com/ttezel/twit)
+  - JQuery (https://github.com/jquery/jquery)
+  - Bootstrap (https://github.com/twbs/bootstrap)
+  - Popper (https://github.com/FezVrasta/popper.js)
+  
+* There are two background images downloaded from Pexels (https://www.pexels.com/)
