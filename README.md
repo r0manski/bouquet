@@ -67,10 +67,10 @@ For the sake of security in this project environment variables are stored in the
 ## API Docs
 * Get Resumes - [GET] (/api/resumes)
   - Return all saved resumes in json.
-* Create Resume - [POST] (/api/resumes)
-  - Create a resume from posted data.
 * Get a Resume - [GET] (/api/resumes/:resumeid)
   - Get a resume based on resume id.
+* Create a Resume - [POST] (/api/resumes)
+  - Create a resume from posted data.
 * Update a Resume - [PUT] (/api/resumes/:resumeid)
   - Update a resume based on resume id.
 * Delete a Resume - [DELETE] (/api/resumes/:resumeid)
@@ -82,16 +82,16 @@ For the sake of security in this project environment variables are stored in the
 * Sign in a User - [POST] (/api/login)
   - Sign in a existing user from posted data.
 * Send a Twitter - [POST] (/twitter/:resumeid)
-  - Send a Twitter from posted data
+  - Send a Twitter from posted data.
 
 ## Coding Principals
 
-1.	Validate all input data
+1.	Validate the input data
 2.	Handle error friendly
 3.	Keep code readable
 4.	Code should have minimal dependencies
 5.	Proper indentation
-6.	Nest tags properly
+6.  Declare a variable before using it
 7.	Eliminate unnecessary resources/tags
 8.	Follow name conventions (e.g. variable/object: changeColor, class/method: InputManager)
 9.	Logical ordering
@@ -99,8 +99,8 @@ For the sake of security in this project environment variables are stored in the
 11.	Provide good annotation
 12.	Modular design
 13.	Minimize coupling
-14.	Do not repeat yourself(DRY)
-15. Write unit and acceptance tests
+14.	Do not repeat yourself (DRY)
+15. Password must be encrypted
 
 ## Contributing
 
