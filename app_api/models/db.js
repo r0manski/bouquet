@@ -3,10 +3,10 @@
 var mongoose = require('mongoose');
 
 //defining and connecting to Mongo DB
-var dbURI = 'mongodb://localhost/bouquet';
+var dbURI = process.env.DBURI_LOC;
 
 if (process.env.NODE_ENV === 'production') {
-    dbURI = 'mongodb://badmin:secret@ds149724.mlab.com:49724/bouquet';
+    dbURI = process.env.DBURI_PROD;
 }
 
 mongoose.connect(dbURI);
@@ -26,7 +26,6 @@ mongoose.connection.on('disconnected', function () {
 });
 
 // capturing termination events
-
 
 //function to close Mongoose connection
 
