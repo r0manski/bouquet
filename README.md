@@ -9,7 +9,7 @@ BouQuet project is the group assessment of Advanced Internet Programming in Spri
 
 This project is created by UTS students Roman and Ming.
 
-## BouQuet online
+## bouQuet online
 
 https://aipbouquet.herokuapp.com/
 
