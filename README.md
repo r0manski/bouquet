@@ -1,20 +1,20 @@
-#bouQuet
+# bouQuet
 
-##About
+## About
 
 BouQuet project is the group assessment of Advanced Internet Programming in Spring 2017 at UTS. BouQuet application is the HR agency web application where job seekers can post their resumes and employers can search the resumes of potential employees.
 
-##Authors
+## Authors
 
 This project is created by UTS students Roman and Ming.
 
-##BouQuet online
+## BouQuet online
 
 https://aipbouquet.herokuapp.com/
 
-##Install locally
+## Install locally
 
-Getting Started
+### Getting Started
 
 Make sure you have installed Node.js in your machine
 
