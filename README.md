@@ -1,8 +1,18 @@
-bouQuet
+#bouQuet
 
-db.users.update({},{$set : {“isAdmin”: false}}, false, true)
+##About
 
-bouQuet is the group assessment of Advanced Internet Programming in Spring 2017
+BouQuet project is the group assessment of Advanced Internet Programming in Spring 2017 at UTS. BouQuet application is the HR agency web application where job seekers can post their resumes and employers can search the resumes of potential employees.
+
+##Authors
+
+This project is created by UTS students Roman and Ming.
+
+##BouQuet online
+
+https://aipbouquet.herokuapp.com/
+
+##Install locally
 
 Getting Started
 
