@@ -9,10 +9,7 @@ var apiOptions = {
 
 //render function separated
 var renderSearchResult = function (req, res, responseBody) {
-    res.render('search-result', {
-        title: 'Search results',
-        resumes: responseBody
-    });
+    res.render('search-result', {resumes: responseBody});
 };
 
 //call API before rendering the page

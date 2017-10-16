@@ -19,9 +19,7 @@ var renderCreateResumeForm = function (req, res) {
 
 /* GET Create resume page */
 module.exports.createResume = function(req, res){
-
     renderCreateResumeForm(req, res)
-
 };
 
 /* POST Add resume page */

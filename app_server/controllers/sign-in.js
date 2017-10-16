@@ -8,7 +8,7 @@ var apiOptions = {
 //GET sign-in page
 
 module.exports.login = function (req, res) {
-    res.render('sign-in', {title: 'Sign-in'});
+    res.render('sign-in');
 };
 
 /* POST sign-in page */

@@ -14,21 +14,12 @@ if (process.env.NODE_ENV === 'production') {
 var renderEditResumeForm = function (req, res) {
     var resumeid = req.params.resumeid;
 
-    res.render('edit-resume', {
-        title: 'Edit the resume',
-        resumeid: resumeid
-    });
+    res.render('edit-resume', {resumeid: resumeid});
 };
 
 /* GET Create resume page */
 module.exports.editResume = function(req, res){
-
     renderEditResumeForm(req, res)
-
-    //{
-    //headers: {
-    //    Authorization: 'Bearer '+ authentication.getToken()
-    //}
 };
 
 /* POST Add resume page */
