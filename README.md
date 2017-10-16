@@ -4,14 +4,14 @@
 
 BouQuet project is the group assessment of Advanced Internet Programming in Spring 2017 at UTS. BouQuet application is the HR agency web application where job seekers can post their resumes and employers can search the resumes of potential employees.
 
+### A bouQuet Online Example
+
+https://aipbouquet.herokuapp.com/
 
 ## Authors
 
 This project is created by UTS students Roman and Ming.
 
-## bouQuet Online Example
-
-https://aipbouquet.herokuapp.com/
 
 ## Key Features
 
@@ -63,6 +63,26 @@ For the sake of security in this project environment variables are stored in the
 //production DB
   DBURI_LOC=...
 ```
+
+## API Docs
+* Get Resumes - [GET] (/api/resumes)
+  - Return all saved resumes in json.
+* Create Resume - [POST] (/api/resumes)
+  - Create a resume from posted data.
+* Get a Resume - [GET] (/api/resumes/:resumeid)
+  - Get a resume based on resume id.
+* Update a Resume - [PUT] (/api/resumes/:resumeid)
+  - Update a resume based on resume id.
+* Delete a Resume - [DELETE] (/api/resumes/:resumeid)
+  - Delete a resume based on resume id.
+* Search Resumes - [POST] (/api/resumes/search)
+  - Search resumes from posted keyword.
+* Register a User - [POST] (/api/register)
+  - Register a new user from posted data.
+* Sign in a User - [POST] (/api/login)
+  - Sign in a existing user from posted data.
+* Send a Twitter - [POST] (/twitter/:resumeid)
+  - Send a Twitter from posted data
 
 ## Coding Principals
 
