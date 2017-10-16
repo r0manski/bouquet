@@ -10,6 +10,8 @@ var bodyParser = require('body-parser');
 var passport = require('passport'); // must be before model definition
 var helmet = require('helmet'); // use helmet to avoid some well-known web vulnerabilities by setting HTTP headers appropriately.
 var validator = require('validator'); //use validator.js for the string validators and sanitizers.
+var async = require('async');
+var nodemailer = require('nodemailer');
 
 require('./app_api/models/db');
 require('./app_api/config/passport'); // must be after model definition, because it needs the user model to exist
