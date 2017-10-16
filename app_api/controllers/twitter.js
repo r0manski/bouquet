@@ -20,7 +20,7 @@ var sendJsonResponse = function (res, status, content) {
 
 module.exports.doTwit = function (req, res) {
     if (req.params && req.params.resumeid){
-        T.post('statuses/update', { status: 'new resume were posted at: http://localhost:3000/view-resume/' + req.params.resumeid }, function(err, data, response) {
+        T.post('statuses/update', { status: 'new resume were posted at: https://aipbouquet.herokuapp.com/view-resume/' + req.params.resumeid }, function(err, data, response) {
             console.log(data);
             sendJsonResponse(res, 200, 'twit was posted');
         })
