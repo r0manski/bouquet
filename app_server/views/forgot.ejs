@@ -7,24 +7,31 @@
 
 <%- include partial/nav.ejs %>
 
+
 <div class="jumbotron m-sign-in">
     <div class="container m-sign-in-middle">
-        <form action="/forgot" method="POST">
-            <legend>Forgot Password</legend>
-            <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="email" name="email" autofocus class="form-control">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Reset Password">
-            </div>
+        <form class="form-signin" id="signinForm">
+            <h2 class="form-signin-heading">Password Reset</h2>
+            <p>An email will be sent to the email address:</p>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address">
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
         </form>
+
     </div>
 </div>
 
-<!--testing API endpoint -->
-
 <%- include partial/footer.ejs %>
+
+<%- include partial/shared-js.ejs %>
+
+<script>
+    'use strict';
+    $(document).ready(function() {
+
+    });
+</script>
 
 </body>
 </html>

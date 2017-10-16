@@ -113,13 +113,13 @@ router.post('/forgot', function(req, res, next) {
             var smtpTransport = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: 'rp.publicbox@gmail.com',
+                    user: 'bouquetreset@gmail.com',
                     pass: process.env.GMAILPW
                 }
             });
             var mailOptions = {
                 to: user.email,
-                from: 'rp.publicbox@gmail.com',
+                from: 'bouquetreset@gmail.com',
                 subject: 'Bouquet Password Reset',
                 text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                 'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -183,13 +183,13 @@ router.post('/reset/:token', function(req, res) {
             var smtpTransport = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: 'rp.publicbox@gmail.com',
+                    user: 'bouquetreset@gmail.com',
                     pass: process.env.GMAILPW
                 }
             });
             var mailOptions = {
                 to: user.email,
-                from: 'rp.publicbox@gmail.com',
+                from: 'bouquetreset@gmail.com',
                 subject: 'Your password has been changed',
                 text: 'Hello,\n\n' +
                 'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
@@ -203,7 +203,6 @@ router.post('/reset/:token', function(req, res) {
         res.redirect('/');
     });
 });
-
 
 module.exports=router;
 
