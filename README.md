@@ -23,7 +23,7 @@ https://aipbouquet.herokuapp.com/
   - Everyone can search for resumes.
 * The app is integrated with a Twitter.
   - The administrator can publish the links for the resumes on twitter account.
-  
+
 ## Installation instructions
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. You will also need to install and run a [Mongo DB](https://www.mongodb.com/download-center). From your command line:
