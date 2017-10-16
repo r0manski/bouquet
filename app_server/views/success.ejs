@@ -26,6 +26,9 @@
     'use strict';
     $(document).ready(function() {
         var successid = <%-JSON.stringify(successid)%>;
+
+        // define various success event handlers
+
         if (successid === "0"){
             $('#successMessage').text("You have successfully logged in.");
             redirectURL("/");

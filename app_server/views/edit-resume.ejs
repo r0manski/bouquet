@@ -11,154 +11,11 @@
     <div class="container">
         <form class="container" id="resume">
             <h2 class="form-resume-heading">Edit the resume</h2>
+            <i>Only the administrators can access this page and perform actions.</i>
+            <i>Asterisk (<span class="red">*</span>) indicates the compulsory field.</i>
             <hr>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label>First name</label>
-                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label>Last name</label>
-                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="" required>
-                </div>
 
-            </div>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label>Gender</label>
-                    <select name="gender" id="gender" class="form-control custom-select">
-                        <!--<option selected>Please select</option>-->
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label>Date of Birth</label>
-                    <input type="text" name="birth" class="form-control" id="birth" placeholder="" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label>Nationality</label>
-                    <input type="text" name="country" class="form-control" id="country" placeholder="" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label>State</label>
-                    <input type="text" name="state" class="form-control" id="state" placeholder="" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label>City</label>
-                    <input type="text" name="city" class="form-control" id="city" placeholder="" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label>Suburb</label>
-                    <input type="text" name="suburb" class="form-control" id="suburb" placeholder="" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Address 1</label>
-                    <input type="text" name="addr1" class="form-control" id="addr1" placeholder="" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Address 2</label>
-                    <input type="text" name="addr2" class="form-control" id="addr2" placeholder="" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label>Email Address</label>
-                    <input type="text" name="email" class="form-control" id="email" placeholder="" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label>Phone Number</label>
-                    <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="" required>
-                </div>
-            </div>
-
-            <br>
-            <hr>
-            <h4>Desired job</h4>
-            <br>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Desired Position</label>
-                    <input type="text" name="desiredPosition" class="form-control" id="desiredPosition" placeholder="">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2 mb-3">
-                    <label>Desired Salary</label>
-                    <input type="text" name="desiredSalary" class="form-control" id="desiredSalary" placeholder="">
-                </div>
-            </div>
-
-            <br>
-            <hr>
-            <h4>Work places</h4>
-            <br>
-            <div class="row">
-                <div class="col-md-2 mb-3">
-                    <label>Start of work</label>
-                    <input type="text" name="startWork" class="form-control" id="startWork" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 mb-3">
-                    <label>End of work</label>
-                    <input type="text" name="endWork" class="form-control" id="endWork" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Organization</label>
-                    <input type="text" name="workPlace" class="form-control" id="workPlace" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Position</label>
-                    <input type="text" name="workPosition" class="form-control" id="workPosition" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Responsibilities, tasks, achievements</label>
-                    <textarea type="text" name="workAchievement" class="form-control" id="workAchievement" placeholder=""></textarea>
-                </div>
-            </div>
-
-
-            <br>
-            <hr>
-            <h4>Education</h4>
-            <br>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Name of educational institution</label>
-                    <input type="text" name="eduInstitution" class="form-control" id="eduInstitution" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Department</label>
-                    <input type="text" name="eduDepartment" class="form-control" id="eduDepartment" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Specialization</label>
-                    <input type="text" name="eduSpecialization" class="form-control" id="eduSpecialization" placeholder="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 mb-3">
-                    <label>Year of graduation</label>
-                    <input type="text" name="eduGraduation" class="form-control" id="eduGraduation" placeholder="">
-                </div>
-            </div>
-
+            <%- include partial/resume-form-content.ejs %>
 
             <hr>
             <button class="btn btn-primary" type="submit">Save</button>
@@ -221,22 +78,29 @@
 
             $('form').submit(function(e) {
                 e.preventDefault();
-                $.ajax({
-                    type: 'PUT',
-                    beforeSend : function(xhr) {
-                        // set JWT header
-                        xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
-                    },
-                    data: $('form').serialize(),
-                    dataType: 'json',
-                    url: '/api/resumes/' + resumeId,
-                    success: function (data) {
-                        window.location = "/success/3";
-                    },
-                    error: function (data) {
-                        window.location = "/error/1";
-                    }
-                });
+
+<%- include partial/resume-form-validation.js %>
+
+                if (formValidation()){
+                    $.ajax({
+                        type: 'PUT',
+                        beforeSend : function(xhr) {
+                            // set JWT header
+                            xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('token'));
+                        },
+                        data: $('form').serialize(),
+                        dataType: 'json',
+                        url: '/api/resumes/' + resumeId,
+                        success: function (data) {
+                            window.location = "/success/3";
+                        },
+                        error: function (data) {
+                            window.location = "/error/1";
+                        }
+                    });
+                }else{
+                    window.location = "/error/7";
+                }
             });
         } else {
             window.location = "/error/7";

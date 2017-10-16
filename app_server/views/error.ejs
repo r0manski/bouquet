@@ -26,6 +26,9 @@
     'use strict';
     $(document).ready(function() {
         var errorId = <%-JSON.stringify(errorid)%>;
+
+        // define various error event handlers
+
         if (errorId === "0"){
             $('#errorMessage').text("Access denied. Please sign in first.");
             redirectURL("/sign-in");
@@ -55,7 +58,7 @@
             redirectBack();
         }
         if (errorId === "7"){
-            $('#errorMessage').text("Edit resume failed. Please try again.");
+            $('#errorMessage').text("Edit resume failed. One or more fields are invalid.");
             redirectBack();
         }
         if (errorId === "8"){
@@ -76,6 +79,10 @@
         }
         if (errorId === "12"){
             $('#errorMessage').text("Search keywords can only be letters.");
+            redirectBack();
+        }
+        if (errorId === "13"){
+            $('#errorMessage').text("Create resume failed. One or more fields are invalid.");
             redirectBack();
         }
 

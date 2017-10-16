@@ -3,6 +3,9 @@
 <script>
     'use strict';
     $(document).ready(function() {
+
+        // get current login status, then show/hide nav buttons
+
         var token = localStorage.getItem('token');
         if(token !== null){
             $('#signOutBtn').css("display", "inherit");
@@ -16,9 +19,10 @@
             $('#createBtn').css("display", "none");
         }
 
+        // set search button functionality
 
         $('#searchBtn').click(function(){
-            if ($('#searchInput').val() !== ""){
+            if (!validator.isEmpty($('#searchInput').val())){
                 if (validator.isAlpha($('#searchInput').val())){
                     window.location = "/search-result/" + $('#searchInput').val();
                 }else {
@@ -28,6 +32,8 @@
                 window.location = "/error/5";
             }
         });
+
+        // set sign out button functionality
 
         $('#signOutBtn').click(function(){
             localStorage.removeItem('token');
