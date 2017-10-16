@@ -21,10 +21,12 @@ https://aipbouquet.herokuapp.com/
   - Registered users can create their resumes.
   - Administrator can edit and delete resumes.
   - Everyone can search for resumes.
+* The app is integrated with a Twitter.
+  - The administrator can publish the links for the resumes on twitter account.
   
 ## Installation instructions
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. You will also need to install and run a [Mongo DB](https://www.mongodb.com/download-center). From your command line:
 
 ```bash
 # Clone the repository
@@ -39,6 +41,18 @@ $ npm install
 # Run the app
 $ npm start
 ```
+For the sake of security in this project environment variables are stored in the .env. The following lines should be created for this file with your variables instead of "...". The * comments should be removed from the .env file.
+
+*twitter developer's vars
+JWT_SECRET=...
+CONSUMER_KEY=...
+CONSUMER_SECRET=...
+ACCESS_TOKEN=...
+ACCESS_TOKEN_SECRET=...
+*local DB
+DBURI_PROD=...
+*production DB
+DBURI_LOC=...
 
 ## Coding Principals:
 
