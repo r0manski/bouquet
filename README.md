@@ -9,7 +9,7 @@ BouQuet project is the group assessment of Advanced Internet Programming in Spri
 
 This project is created by UTS students Roman and Ming.
 
-## bouQuet online
+## bouQuet Online Example
 
 https://aipbouquet.herokuapp.com/
 
@@ -64,7 +64,7 @@ For the sake of security in this project environment variables are stored in the
   DBURI_LOC=...
 ```
 
-## Coding Principals:
+## Coding Principals
 
 1.	Validate all input data
 2.	Handle error friendly
