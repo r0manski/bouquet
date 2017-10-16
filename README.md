@@ -15,7 +15,7 @@ This project is created by UTS students Roman and Ming.
 
 ## Key Features
 
-* Sing up, Login, Logout
+* Sign up, Login, Logout, Password Reset (Email)
   - Users need to create an account and log in to create their resume.
 * Create, View, Search, Edit and Delete 
   - Registered users can create their resumes.
@@ -83,6 +83,10 @@ For the sake of security in this project environment variables are stored in the
   - Sign in a existing user from posted data.
 * Send a Twitter - [POST] (/twitter/:resumeid)
   - Send a Twitter from posted data.
+* Send a Password Reset Email - [POST] (/forgot)
+  - Semd a password reset email from posted email address.
+* Reset a password - [POST] (/reset/:token)
+  - Reset a password based on token.
 
 ## Coding Principals
 
