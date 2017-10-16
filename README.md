@@ -4,6 +4,7 @@
 
 BouQuet project is the group assessment of Advanced Internet Programming in Spring 2017 at UTS. BouQuet application is the HR agency web application where job seekers can post their resumes and employers can search the resumes of potential employees.
 
+
 ## Authors
 
 This project is created by UTS students Roman and Ming.
@@ -12,21 +13,34 @@ This project is created by UTS students Roman and Ming.
 
 https://aipbouquet.herokuapp.com/
 
-## Install locally
+## Key Features
 
-### Getting Started
+* Sing up, Login, Logout
+  - Users need to create an account and log in to create their resume.
+* Create, View, Search, Edit and Delete 
+  - Registered users can create their resumes.
+  - Administrator can edit and delete resumes.
+  - Everyone can search for resumes.
+  
+## Installation instructions
 
-Make sure you have installed Node.js in your machine
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-Download and unzip the package
+```bash
+# Clone the repository
+$ git clone https://github.com/r0manski/bouquet.git
 
-npm install
-Then
+# Go into the repository
+$ cd bouquet
 
-npm start
-Done!
+# Install dependencies
+$ npm install
 
-Coding Principles:
+# Run the app
+$ npm start
+```
+
+## Coding Principals:
 
 1.	Validate all input data
 2.	Handle error friendly
