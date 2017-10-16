@@ -15,7 +15,7 @@ This project is created by UTS students Roman and Ming.
 
 ## Key Features
 
-* Sign up, Login, Logout, Password Reset (Email)
+* Sign in, Sign up, Sign out, Password Reset (Email)
   - Users need to create an account and log in to create their resume.
 * Create, View, Search, Edit and Delete 
   - Registered users can create their resumes.
