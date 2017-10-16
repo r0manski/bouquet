@@ -89,6 +89,26 @@
             $('#errorMessage').text("Share resume failed. Please try again.");
             redirectBack();
         }
+        if (errorId === "15"){
+            $('#errorMessage').text("Send password reset email failed. Please provide a valid email address");
+            redirectURL("/forgot");
+        }
+        if (errorId === "16"){
+            $('#errorMessage').text("Send password reset email failed. Please try again.");
+            redirectURL("/forgot");
+        }
+        if (errorId === "17"){
+            $('#errorMessage').text("One or more fields are missing or invalid. Only letters and numbers are allowed.");
+            redirectBack();
+        }
+        if (errorId === "18"){
+            $('#errorMessage').text("Please type in a valid email address.");
+            redirectBack();
+        }
+        if (errorId === "19"){
+            $('#errorMessage').text("Password reset failed. Please try again.");
+            redirectBack();
+        }
 
         function redirectBack(){
             window.setTimeout(function(){

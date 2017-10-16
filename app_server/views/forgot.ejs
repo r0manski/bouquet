@@ -7,10 +7,9 @@
 
 <%- include partial/nav.ejs %>
 
-
 <div class="jumbotron m-sign-in">
     <div class="container m-sign-in-middle">
-        <form class="form-signin" id="signinForm">
+        <form class="form-signin" id="forgotForm">
             <h2 class="form-signin-heading">Password Reset</h2>
             <p>An email will be sent to the email address:</p>
             <label for="inputEmail" class="sr-only">Email address</label>
@@ -18,7 +17,6 @@
             <br>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
         </form>
-
     </div>
 </div>
 
@@ -29,7 +27,29 @@
 <script>
     'use strict';
     $(document).ready(function() {
+        $('#forgotForm').submit(function(e) {
+            e.preventDefault();
 
+            // check the user's input satisfies the requirement
+
+            if (validator.isEmail($('#inputEmail').val())){
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        email: $('#inputEmail').val(),
+                    },
+                    url: '/forgot',
+                    success: function (data) {
+                        window.location = "/success/7";
+                    },
+                    error: function (data) {
+                        window.location = "/error/15";
+                    }
+                });
+            }else{
+                window.location = "/error/18";
+            }
+        });
     });
 </script>
 

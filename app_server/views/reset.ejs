@@ -9,31 +9,47 @@
 
 <div class="jumbotron m-sign-in">
     <div class="container m-sign-in-middle">
-        <form action="/reset/<%= token %>" method="POST">
-            <legend>Reset Password</legend>
-            <div class="form-group">
-                <label>New Password</label>
-                <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+        <form class="form-signin" id="resetForm">
+            <h2 class="form-signin-heading">Password Reset</h2>
+            <p>Please type in the new password:</p>
+            <label class="sr-only">New Password</label>
+            <input id="newPassword" type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+            <label class="sr-only">Confirm password</label>
+            <input id="confirmPassword" type="password" name="password" value="" placeholder="Confirm password" autofocus="autofocus" class="form-control"/>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Reset</button>
         </form>
     </div>
 </div>
-
-<!--testing API endpoint -->
 
 <%- include partial/footer.ejs %>
 
 <%- include partial/shared-js.ejs %>
 
 <script>
+    'use strict';
+    $(document).ready(function() {
+        $('#resetForm').submit(function(e) {
+            e.preventDefault();
 
+            // check the user's input satisfies the requirement
+
+            $.ajax({
+                type: 'POST',
+                data: {
+                    password: $('#newPassword').val(),
+                    confirm: $('#confirmPassword').val()
+                },
+                url: '/reset/' + <%-JSON.stringify(token)%>,
+                success: function (data) {
+                    window.location = "/success/8";
+                },
+                error: function (data) {
+                    window.location = "/error/19";
+                }
+            });
+        });
+    });
 </script>
 
 </body>

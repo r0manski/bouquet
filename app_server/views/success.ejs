@@ -57,6 +57,14 @@
             $('#successMessage').text("The resume has been shared.");
             redirectURL("/");
         }
+        if (successid === "7"){
+            $('#successMessage').text("The password reset email has been sent.");
+            redirectURL("/");
+        }
+        if (successid === "8"){
+            $('#successMessage').text("The password has been successfully reset.");
+            redirectURL("/");
+        }
 
 
         function redirectBack(){
